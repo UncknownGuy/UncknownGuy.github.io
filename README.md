@@ -1,10 +1,17 @@
 # My Public Sits
 You Can Watch The Featured Videos 
+<style>
+  .colum{
+  width=50px
+
+  }
+</style>
 
 <div align="center">
 
   <img src="https://i.imgur.com/M5KHA0c.png" width="480" height="">
 
+<div class=colum>
 <img src="https://cdni.pornpics.com/1280/7/630/91066942/91066942_007_9f2c.jpg" width="100px">
          
 <img src="https://cdni.pornpics.com/1280/7/515/29552983/29552983_004_2579.jpg" width="100px">
