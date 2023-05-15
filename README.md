@@ -1,5 +1,5 @@
 # My Public Sits
-You Can Watch The Featured Videos 
+You Can Watch The Featured Videos On This Site
 
 
 <div align="center">
