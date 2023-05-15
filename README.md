@@ -1,11 +1,6 @@
 # My Public Sits
 You Can Watch The Featured Videos 
-<style>
-  .colum{
-  width=50px
 
-  }
-</style>
 
 <div align="center">
 
