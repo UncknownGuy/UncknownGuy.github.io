@@ -7,7 +7,7 @@ You Can Watch The Featured Videos On This Site
   <img src="https://i.imgur.com/M5KHA0c.png" width="90%" height="">
   
 
-<div align="colum">
+<div align="collage">
   <h1>including these stars</h1>
 
 <p>Aylx Star</p><img src="https://cdni.pornpics.com/1280/7/515/29552983/29552983_021_ea10.jpg" width="55%">
