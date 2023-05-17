@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="demo.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" type = "text/css" rel="stylesheet">
+  <script src = "script.js" type = "text/javascript" language = "javascript"></script>
+  <link rel="stylesheet" href="menu.css">
   <link rel="icon" href="icon.ico">
+  <script src = "menu.js" type = "text/javascript" language = "javascript"></script>
+  <link rel="stylesheet" href="theme.css">
 <style>
 @font-face {
    font-family: myFirstFont;
@@ -34,16 +39,11 @@
 }
 @media (min-width: 40rem) {
   .welvid {
-    flex-direction: row;
     display: none;
   }
 }
 
 /* demo stuff */
-body {
-  padding: 2em;
-  background-color: black;
-}
 
 .btn {
   position: relative;
@@ -151,6 +151,7 @@ div.desc {
 
 .responsive {
   padding: 0 6px;
+  padding: 0.4em;
   float: left;
   width: 24.99999%;
 }
@@ -166,12 +167,73 @@ div.desc {
   .responsive {
     width: 19.99999%;
     margin: 1px 0;
+    padding: 0.4em;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .responsive {
     width: 100%;
+    padding: 2em;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .maintexts {
+    width: 100%;
+    padding: 2em;
+    position: center;
+    margin: 5px;
+    color: blue;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  h4 {
+  background: black;
+  color: black;
+  text-align: center;
+  padding-left: 5px;
+  margin-block: 10px;
+  width: 100%;
+  font-family: Comic Sans MS;
+  background-repeat: no-repeat;
+  background: red;
+  background-origin: normal;
+  display: device-width;
+  height: 30px;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .Featuredblock h4{
+  background: black;
+  color: black;
+  text-align: left;
+  padding-left: 5px;
+  margin-block: 5px;
+  width: 100%;
+  font-family: Comic Sans MS;
+  background-repeat: no-repeat;
+  background: red;
+  background-origin: normal;
+  display: device-width;
+  height: 30px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .welvid {
+  width: 100%;
+  position: bottom;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .welvid video{
+  width: 100%;
+  position: bottom;
+  margin-top: 35px;
   }
 }
 
@@ -191,7 +253,7 @@ h4{
   background: red;
   background-origin: normal;
   display: device-width;
-  height: 22px;
+  height: 30px;
 }
 h1{ 
   color: red;
@@ -203,15 +265,21 @@ h2{
   color: white;
 }
 
+body{
+ background-color: black;
+}
+
 .maintexts{
   font-family: Comic Sans MS;
-  font-size: 20px;
+  margin: 2px;
+  font-size: 0px;
   padding-bottum: 20px ;
+  padding: 0.4em;
 }
 
 div.maintexts{
   font-size: 20px;
-  font-family: Comic Sans MS;
+  font-family: Arial;
 }
 .contactimg{
   margin-block: 20px;
@@ -219,19 +287,117 @@ div.maintexts{
   background-position: center;
 }
 
+@media only screen and (min-width: 500px) {
+  .maintexts h2 {
+    width: 100%;
+    margin: 6px;
+    margin-top: 20px;
+  }
+}
+
 .contactimg a{
   margin-block: 20px;
   margin:20px;
   cursor: pointer;
 }
+.card{
+  padding: 1em;
+}
+
+@media only screen and (min-width: 900px) {
+  .contactimg {
+    width: 100%;
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container {
+    width: 100%;
+    cursor: none;
+    position: top;
+    font-size: 20px;
+    
+    
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .contactimg {
+    cursor: none;
+    background-color: black;
+    
+    
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .overlayContent {
+    width: 100%;
+    font-size: 2px;
+    font-weight: 30px;
+    position: top;
+    cursor: none;
+    
+    
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+  header {
+    width: 100%;
+    position: top;
+    margin-right: 30px;
+    padding: 20px;
+    padding-bottom: 20px;
+    cursor: normal;
+   
+  }
+}
 
 </style>
 </head>
 <body>
+   
+  <header id = "top">
+
+        <div class = "container">
+
+            <!-- Logo -->
+
+            <!-- Menu Button -->
+            <div class = 'menu' onclick = "menuButton(this); toggleNav()">
+                <div class = "bar1"></div>
+                <div class = "bar2"></div>
+                <div class = "bar3"></div>
+            </div>
+            
+        </div>
+       <div class = "container">
+        <nav id = "myNav" class = "overlay">
+            <div class = "overlayContent">
+                <a href="leaks.html">Leaks</a>
+                <br>
+                <br>
+                <a href="post.html">Posters</a>
+                <br>
+                <br>
+                <a href="#">Services</a>
+                <br>
+                <br>
+                <a href="#">About Me</a>
+                <br>
+                <br>
+                <a href="https://wa.me/+94725877280?text=IamFromYourWeb😑">Contact</a>
+            </div>
+        </nav>
+    </div>
+    </header>
+    <!-- Header End -->
+    
 <script>
-setTimeout(function(){
-   window.location.reload();
-}, 10000);
+
 </script>
 <div class="welvid">
   
@@ -246,7 +412,8 @@ setTimeout(function(){
  <h2>UncknownGuy Gallery</h2></div>
   
      <div class="maintexts">
-  <h4>Featured List</h4></div>
+       <div class="Featuredblock">
+  <h4>Featured List</h4></div></div>
 
 <div class="backco">
   
@@ -322,7 +489,7 @@ setTimeout(function(){
   <a href="https://fapello.com/lana-rhoades/"><button class="btn btn--primary">ONLYFANS</button>
 </div>
 </div>
-
+  
 </body>
 </html>
 
