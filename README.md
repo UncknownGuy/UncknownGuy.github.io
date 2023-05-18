@@ -1,4 +1,4 @@
-# My Public Sits
+# My Public Sit
 You Can Watch The Featured Videos On This Site
 
 
