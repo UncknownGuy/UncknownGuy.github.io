@@ -4,7 +4,7 @@ You Can Watch The Featured Videos On This Site
 
 <div align="center">
 
-  <img src="https://github.com/UncknownGuy/UncknownGuy.github.io/blob/0f35518f90ba72f8ecbb7d8d09bdbc0324e1f1a4/New%20Project%2019%20%5BFADA507%5D.png" width="60%" height="">
+  <img src="https://github.com/UncknownGuy/UncknownGuy.github.io/blob/0f35518f90ba72f8ecbb7d8d09bdbc0324e1f1a4/New%20Project%2019%20%5BFADA507%5D.png" width="90%" height="">
   
 
 
