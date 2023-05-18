@@ -35,6 +35,7 @@
 @media (min-width="1000px") {
   .btns {
     flex-direction: row;
+ 
   }
 }
 @media (min-width: 40rem) {
@@ -47,15 +48,15 @@
 
 .btn {
   position: relative;
-  padding: 10px;
+  padding: 1px;
   width: 100%;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375em;
+  padding: 0.4rem 1rem;
+  border-radius: 2.375em;
   font-size: 1em;
   text-decoration: none;
   line-height: 1.2;
@@ -74,7 +75,7 @@
 
 .btn--primary {
   background: black;
-  box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.15), 
+  box-shadow: inset 0 2px 0 hsla(0, 0%, 100%, 0.15), 
               0 1px 3px hsla(250, 84%, 38%, 0.25), 
               0 2px 6px hsla(250, 84%, 38%, 0.1), 
               0 6px 10px -2px hsla(250, 84%, 38%, 0.25);
@@ -124,8 +125,20 @@
               0 0 0 4px hsl(230, 7%, 23%);
 }
 div.gallery {
-  border: 1px solid #ccc;
+  border: 3px solid red;
+  border-radius: 1.375em;
   box-shadow: 20px;
+}
+
+div.gallery img {
+  border-radius: 1.350em;
+  box-shadow: 20px;
+}
+
+.responsive .Gallery .desc {
+  color: red;
+  background-color: red;
+
 }
 
 div.gallery:hover {
@@ -139,7 +152,7 @@ div.gallery img {
 
 div.desc {
   padding: 20px;
-  font-size: 22px;
+  font-size: 19px;
   text-align: center;
   font-family: Arial;
   font-style: normal;
@@ -148,6 +161,24 @@ div.desc {
 * {
   box-sizing: border-box;
 }
+
+@media only screen and (max-width: 500px) {
+  .btn {
+  background: black;
+  color: white;
+  text-align: center;
+  padding-left: 5px;
+  margin-block: 5px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background: black;
+  background-origin: normal;
+  display: device-width;
+  height: 33px;
+  }
+}
+
+
 
 .responsive {
   padding: 0 6px;
@@ -175,6 +206,22 @@ div.desc {
   .responsive {
     width: 100%;
     padding: 2em;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  div .gallery {
+  border-radius: 1.375em;
+  box-shadow: 20px;
+  margin: 5px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 900px;
+    width: 50%;
+    padding: 0.9em;
   }
 }
 
@@ -208,7 +255,7 @@ div.desc {
 @media only screen and (min-width: 500px) {
   .Featuredblock h4{
   background: black;
-  color: black;
+  color: white;
   text-align: left;
   padding-left: 5px;
   margin-block: 5px;
@@ -218,7 +265,7 @@ div.desc {
   background: red;
   background-origin: normal;
   display: device-width;
-  height: 30px;
+  height: 35px;
   }
 }
 
@@ -232,8 +279,8 @@ div.desc {
 @media only screen and (max-width: 500px) {
   .welvid video{
   width: 100%;
-  position: bottom;
-  margin-top: 35px;
+  position: top;
+  margin-top: 30px;
   }
 }
 
@@ -357,6 +404,7 @@ div.maintexts{
 }
 
 </style>
+
 </head>
 <body>
    
@@ -489,8 +537,9 @@ div.maintexts{
   <a href="https://fapello.com/lana-rhoades/"><button class="btn btn--primary">ONLYFANS</button>
 </div>
 </div>
-  
+
 </body>
+
 </html>
 
 
