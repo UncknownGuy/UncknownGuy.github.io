@@ -1,0 +1,106 @@
+  @keyframes opacityChange {
+    to {
+      --opacity: 1;
+    }
+  }
+
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  .rainbow {
+    animation: rotate 4s linear infinite, opacityChange 3s infinite alternate;
+  }
+
+  /* Hide the warning */
+  .warning {
+    display: none;
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  gap: 0.5em;
+
+  text-align: center;
+  line-height: 1.42;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+:root {
+  --angle: 45deg;
+  --opacity: 0.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.rainbow {
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: auto;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  font-size: 1.5em;
+  --border-size: 0.3rem;
+  border: var(--border-size) solid transparent;
+
+  /* Paint an image in the border */
+  border-image: conic-gradient(
+      from var(--angle),
+      #d53e33 0deg 90deg,
+      #fbb300 90deg 180deg,
+      #377af5 180deg 270deg,
+      #399953 270deg 360deg
+    )
+    1 stretch;
+  background: rgb(255 255 255 / var(--opacity));
+}
+
+/** show a warning in browers that don't support it **/
+
+.warning {
+  margin: 2em;
+  padding: 1em;
+  border: 1px solid #ccc;
+}
+.warning p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+/* Animate when Houdini is available */
+@supports (background: paint(houdini)) {
+  @property --opacity {
+    syntax: "<number>";
+    initial-value: 0.5;
+    inherits: false;
+  }
+
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @media only screen and (max-width: 500px) {
+  .welcome {
+  display: none;
+}
