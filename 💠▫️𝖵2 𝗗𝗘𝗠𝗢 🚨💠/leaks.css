@@ -1,5 +1,11 @@
+
+
 .body{
   background-color: white;
+}
+
+a{
+  text-transform: uppercase;
 }
 
 .backco{
@@ -30,6 +36,16 @@ body{
   width: 100%;
   flex-direction: column;
   gap: 0.5em;
+}
+@media only screen and (max-width: 500px) {
+  .responsive {
+    cursor: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .btns {
+    cursor: none;
+  }
 }
 
 @media (min-width: 32rem) {
@@ -243,6 +259,10 @@ h2{
 
 body{
  background-color: black;
+ margin: 0;
+ margin-block: 0;
+ padding: 0;
+ 
 }
 
 .maintexts{
@@ -275,7 +295,7 @@ div.maintexts{
 @media only screen and (min-width: 900px) {
   .contactimg {
     width: 100%;
-    display: none;
+    
   }
 }
 

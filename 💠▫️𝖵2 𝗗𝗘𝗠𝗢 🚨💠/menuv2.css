@@ -32,9 +32,10 @@ header {
 }
 
 .logoo h2{
-  color: red;
-  height: 900px;
-  padding-top: 10px;
+  color: black;
+  height: 0px;
+  margin-top: 30px;
+  margin-left: 130px;
 }
 .category img{
   position: fixed;
@@ -47,24 +48,38 @@ header {
 
 .logoo{
   position: fixed;
+  background-color: #0073CF;
   padding-left: 65px;
   size: 10%;
+  width: 100%;
   font-size: 10px;
-  height: 20px;
-  height: 900px;
+  height: 80px;
+  opacity: 0.90;
   
 }
+
+.logoo img {
+  position: fixed;
+  width: 55px;
+  margin-top: 13px;
+  margin-left: 155px;
+  border-radius: 50%;
+  opacity: .90;
+  
+}
+
 header .logo {
     float: left;
     margin-top: 4px;
-    margin-right: 100px;
+    margin-right: 0px;
     width: 2px;
 }
 
 header .menu{
-    float: right;
-    margin-left: 20px;
-    margin-top: 2px;
+    float: left;
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 0px;
     cursor: none;
     position: fixed;
     z-index: 2
@@ -84,17 +99,19 @@ header .title a:link, a:visited{
 }
 
 .bar1, .bar2, .bar3 {
-    background-color: darkred;
+    background-color: black;
     width: 38px;
     height: 5px;
     margin-bottom: 6px;
     transition: 0.4s;
+
 }
 
 @media only screen and (min-width: 500px) {
   .bar1, .bar2, .bar3 {
     color: white;
     background-color: white;
+
   }
 }
 
@@ -158,7 +175,7 @@ header .title a:link, a:visited{
   .header menu {
     float: right;
     margin-left: 20px;
-    margin-top: 5px;
+    margin-top: 159px;
     margin-right: 15px ;
     cursor: none;
     position: relative;
@@ -166,4 +183,41 @@ header .title a:link, a:visited{
     display: none;
   }
 }
+  
+body{
+  margin: 0;
+  padding: 0;
+  block-size: 0;
+}
 
+.logoo02{
+  font-size: 10px;
+  position: fixed;
+  color: black;
+}
+.logoo02 h1{
+  width: 100%;
+  color: black;
+  margin-top: 35px;
+  font-size: 15.100px;
+  padding-left: 20px;
+  align-items: right;
+}
+
+.connectwithme {
+  font-size: 10px;
+  padding-top: 10px;
+  margin-bottom: 70px;
+  position: center;
+  background-position: center;
+  align-items: center;
+  height: 0px;
+ 
+}
+
+.connectwithme h1{
+  font-size: 25px;
+  padding-top: 6px;
+  height: 10px;
+ 
+}
