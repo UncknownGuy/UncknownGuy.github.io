@@ -6,15 +6,13 @@
 
 header {
     width: 100%;
-
     min-height: 50px;
     max-height: 80px;
     padding-bottom: 200px;
     margin-bottom: 200px;
-    
     color: white;
     position: absolute;
-    margin: 0x;
+    margin: 0px;
 }
 
 .container {
@@ -138,3 +136,27 @@ header .title a:link, a:visited{
   }
 }
 
+.logoo {
+  background-color: #0073CF;
+  opacity: .90;
+  position: fixed;
+  padding-left: 215px;
+  animation-direction: 0.9;
+  transition-delay: 4s;
+  float: left;
+  width: 100%;
+  cursor: none;
+  z-index: 2
+  line-height: 30px;
+  height: 90px;
+}
+
+.logoo img {
+  border-radius: 50%;
+  margin-top: 25px;
+  float: left;
+  width: 45px;
+  margin-left: 10px;
+  cursor: none;
+  background-position: center;
+}
