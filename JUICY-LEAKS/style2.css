@@ -1,0 +1,109 @@
+.slideshow {
+  list-style-type: none;
+}
+
+/** SLIDESHOW **/
+.slideshow,
+.slideshow:after { 
+    top: -16px; /*Not sure why I needed this fix*/
+		position: relative;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    z-index: 0; 
+}
+
+.slideshow{
+  width: 100%;
+  height: 75vh;
+}
+.slideshow li span { 
+		position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 30s linear infinite 0s; 
+}
+
+
+.slideshow li:nth-child(1) span { 
+    background-image: url("/juicyimgss/git-img-1.png"); 
+}
+.slideshow li:nth-child(2) span { 
+    background-image: url("/juicyimgss/git-img-2.png");
+    animation-delay: 6s; 
+}
+.slideshow li:nth-child(3) span { 
+    background-image: url("/juicyimgss/git-img-3.png");
+    animation-delay: 12s; 
+}
+.slideshow li:nth-child(4) span { 
+    background-image: url("/juicyimgss/git-img-4.png");   
+    animation-delay: 18s; 
+}
+.slideshow li:nth-child(5) span { 
+    background-image: url("/juicyimgss/git-img-5.png");
+    animation-delay: 24s; 
+}
+.slideshow li:nth-child(6) span { 
+    background-image: url("/juicyimgss/git-img-6.png");
+    animation-delay: 28s; 
+}
+.slideshow li:nth-child(7) span { 
+    background-image: url("/juicyimgss/git-img-7.png");
+    animation-delay: 33s; 
+}
+.slideshow li:nth-child(8) span { 
+    background-image: url("/juicyimgss/git-img-8.png");
+    animation-delay: 36s; 
+}
+.slideshow li:nth-child(9) span { 
+    background-image: url("/juicyimgss/git-img-9.png");
+    animation-delay: 39s; 
+}
+.slideshow li:nth-child(10) span { 
+    background-image: url("/juicyimgss/git-img-10.png");
+    animation-delay: 43s; 
+}
+.slideshow li:nth-child(11) span { 
+    background-image: url("/juicyimgss/git-img-11.png");
+    animation-delay: 46s; 
+}
+.slideshow li:nth-child(12) span { 
+    background-image: url("/juicyimgss/git-img-12.png");
+    animation-delay: 49s; 
+}
+.slideshow li:nth-child(13) span { 
+    background-image: url("/juicyimgss/git-img-13.png");
+    animation-delay: 53s; 
+}
+.slideshow li:nth-child(14) span { 
+    background-image: url("/juicyimgss/git-img-14.png");
+    animation-delay: 56s; 
+}
+.slideshow li:nth-child(15) span { 
+    background-image: url("/juicyimgss/git-img-15.png");
+    animation-delay: 59s; 
+}
+
+@keyframes imageAnimation { 
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    8% { opacity: 1; animation-timing-function: ease-out; }
+    100% { opacity: 0 }
+    80% { opacity: 0 }
+    100% { opacity: 0 }
+    80% { opacity: 1 }
+}
+
+
+.no-cssanimations .cb-slideshow li span {
+	opacity: 1;
+}
+
