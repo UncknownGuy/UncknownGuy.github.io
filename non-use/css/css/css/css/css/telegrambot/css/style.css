@@ -6,6 +6,13 @@ body{
     
 }
 
+p {
+  font-size: 42px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+}
+
 h1{
     text-align: center;
     font-family: 'Poppins', sans-serif;
