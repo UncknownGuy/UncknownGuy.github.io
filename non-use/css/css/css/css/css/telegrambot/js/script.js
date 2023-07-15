@@ -1,19 +1,8 @@
-// Function to redirect console.log messages to a div element
-function redirectConsoleLog() {
-  const consoleLog = console.log;
-  const consoleDiv = document.getElementById('console');
-
-  console.log = function(message) {
-    consoleLog.apply(console, arguments);
-    consoleDiv.innerHTML += `${message}<br>`;
-    consoleDiv.scrollTop = consoleDiv.scrollHeight;
-  };
+// Function to refresh the web page
+function refreshPage() {
+  console.log('Refreshing page...');
+  location.reload();
 }
 
-// Redirect console.log messages to the console div
-redirectConsoleLog();
-
-// Example console.log messages
-console.log('This is a console log message.');
-console.log('Another console log message.');
-setInterval(updateUptime, 1000);
+// Set the timeout to refresh after 1 hour
+setTimeout(refreshPage, 60 * 60 * 1000);
