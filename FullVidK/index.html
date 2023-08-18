@@ -1,14 +1,341 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Plyr Video Player</title>
+<style>
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/back.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(5px);
+  z-index: -1;
+}
+#backgroundVideo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+/* Style the video controls */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; 
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #videoControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.custom-control-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.custom-control-button:hover {
+  background-color: #45a049;
+}
+
+#volumeRange {
+  width: 100px;
+}
+
+
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .button:hover {
+    background-color: #45a049;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .modal-content {
+    background-color: #ffffff;
+    max-width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-box {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  .visit-count-box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.visit-count-box h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.visit-count-box h2 {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #4CAF50; /* Match your website color */
+}
+.formatted-count-box {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.formatted-visit-count {
+  font-size: 18px;
+  color: #4CAF50; /* Match your website color */
+  margin-top: 5px;
+}
+/* Basic styles for the navigation bar */
+.navbar {
+  position: relative;
+  background-color: #4CAF50; /* Match your website color */
+  padding: 10px 20px;
+  color: white;
+}
+
+/* Dropdown menu container */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+/* Dropdown menu button */
+.dropdown .dropbtn {
+  background-color: inherit;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* Dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Style for dropdown links */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+</style>
 </head>
 <body>
- <center><a href="https://t.me/FullVidKbot?start=r8xxwu"><img width="100%" class="head"  src="https://telegra.ph/file/39db892d5ada9000c946f.jpg"></center>
-  <center><a href="https://t.me/FullVidKbot?start=r8xxwu"><img class="Gif" src="https://uncknownguy.github.io/cloud/images/FullVidK.gif"></img></center></a>
-   <center><img width="600px" class="logo"  src="https://telegra.ph/file/47c9f4c2fcaa5031771f4.png"></center>
+  <!-- Navigation bar -->
+<div class="navbar">
+  <!-- Dropdown menu -->
+  <div class="dropdown">
+    <button class="dropbtn">&#9776; Menu</button>
+    <div class="dropdown-content">
+      <a href="#">Join Channel</a>
+      <a href="#">Contact</a>
+      <a href="#">Test Raw Lines</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="header">
+    <h2>Welcome to Our FullVidK!</h2>
+    <p>Stay tuned with telegram channel and tik tok</p>
+  </div>
+
+  <button class="button" id="channelBtn"> Join Telegram Channel </button>
+  <button class="button" id="groupBtn"> FullVidK Telegram Bot</button>
+
+  <div class="info-box">
+    <h1>Tutorial</h1>
+    
+<video id="backgroundVideo" autoplay loop muted controls>
+  <source src="/video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<div id="videoControls">
+  <button id="playPauseButton" class="custom-control-button">Play</button>
+  <input id="volumeRange" type="range" min="0" max="1" step="0.01" value="1">
+  <button id="muteButton" class="custom-control-button">Mute</button>
+</div>
+
+  <div class="info-box">
+    <h1>Steps</h1>
+
+    <h2>Follow These To Get Access To FullVidK</h2>
+    <p>1. If You Haven't Telegram You Need To Install It From Playstore</p>
+    <p>1. You Need To Click the "Join Telegram Channel" button to join our channel</p>
+    <p>2. Then Click FullVidK Telegram Bot Button.</p>
+    <p>3. Now You Have Access</p>
+  </div>
+
+
+  <div id="redirectModal" class="modal">
+    <div class="modal-content">
+      <p>You will be redirected in <span id="countdown">5</span> seconds...</p>
+    </div>
+  </div>
+</div>
+<script>
+
+
+document.getElementById("channelBtn").addEventListener("click", function() {
+  showModal("https://t.me/FullVidK");
+});
+
+document.getElementById("groupBtn").addEventListener("click", function() {
+  showModal("https://t.me/FullVidKbot?start=uuydfn");
+});
+
+function showModal(redirectLink) {
+  var modal = document.getElementById("redirectModal");
+  var countdown = document.getElementById("countdown");
+  var seconds = 5;
+
+  modal.style.display = "block";
+
+  var countdownInterval = setInterval(function() {
+    seconds--;
+    countdown.innerText = seconds;
+    if (seconds <= 0) {
+      clearInterval(countdownInterval);
+      window.location.href = redirectLink;
+    }
+  }, 1000);
+
+  setTimeout(function() {
+    modal.style.display = "none";
+    clearInterval(countdownInterval);
+    window.location.href = redirectLink;
+  }, (seconds + 1) * 1000);
+}
+
+// Your existing script
+
+document.getElementById("playPauseButton").addEventListener("click", function() {
+  var video = document.getElementById("backgroundVideo");
+  if (video.paused) {
+    video.play();
+    playPauseButton.innerHTML = "Pause";
+  } else {
+    video.pause();
+    playPauseButton.innerHTML = "Play";
+  }
+});
+
+document.getElementById("volumeRange").addEventListener("input", function() {
+  var video = document.getElementById("backgroundVideo");
+  var volumeRange = document.getElementById("volumeRange");
+  video.volume = volumeRange.value;
+});
+
+document.getElementById("muteButton").addEventListener("click", function() {
+  var video = document.getElementById("backgroundVideo");
+  var volumeRange = document.getElementById("volumeRange");
+  if (video.muted) {
+    video.muted = false;
+    muteButton.innerHTML = "Mute";
+    volumeRange.value = video.volume;
+  } else {
+    video.muted = true;
+    muteButton.innerHTML = "Unmute";
+    volumeRange.value = 0;
+  }
+});
+
+// Rest of your script
+
+
+</script>
+
 </body>
 </html>
