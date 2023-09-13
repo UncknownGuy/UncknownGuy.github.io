@@ -12,16 +12,16 @@
             margin: 0;
             padding: 0;
             background-color: #f2f2f2;
-        }
+  
+}
+        
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 5px;
-            
         }
 .row {
             display: flex;
@@ -33,7 +33,7 @@
         .iframe-container {
             box-sizing: border-box;
             width: 100%;
-            padding: 15px; /* Create space around iframes */
+            padding: 5px; /* Create space around iframes */
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add box shadow */
             border-radius: 5px;
@@ -121,6 +121,7 @@
     text-align: center;
     margin-top: 20px;
     padding: 20px;
+    background-color: #ffff;
 }
 
 #search-input {
@@ -128,16 +129,16 @@
     border: 2px solid #333;
     border-radius: 5px;
     font-size: 16px;
-    width: 300px; /* Adjust the width as needed */
+    width: 320px; /* Adjust the width as needed */
 }
 
 #search-input::placeholder {
-    color: #999;
+    color: grey;
 }
 
 #search-input:focus {
     outline: none;
-    border-color: #ff6600;
+    border-color: yellow;
     box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
 }
 /* Center the Search Button */
@@ -213,15 +214,28 @@ h1{
 li{
   font-family: 'Poppins', sans-serif;
 }
+
+
+.download-button {
+  padding: 10px 20px;
+  background-color: #ffaa00; /* Dark yellow color */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s; /* Add a transition effect for the transform property */
+}
+
+.download-button:hover {
+  background-color: #cc8800; /* Darker yellow color on hover */
+  transform: scale(1.05); /* Add a slight scaling effect on hover */
+}
+
     </style>
   
 <body>
   <!-- Search Block -->
-<!-- Search Block -->
-<div class="search-block id="myIframe>
-    <input type="text" id="search-input" placeholder="Search by Category or Caption..." oninput="performSearch()">
-</div>
-
 <div class="container">
     <h1 style="text-align: center;">FullVidK</h1>
 
@@ -230,7 +244,12 @@ li{
         <ul class="menu">
           <li><a href="./pornstars.html">Top</a></li>
             <li><a href="#">Home</a></li>
+            <li><a href="https://www.hentaicity.com?ref=UnknownGuy">Anime</a></li>
     <!-- Iframe containers go here -->
+</div>
+<!-- Search Block -->
+<div class="search-block id="myIframe>
+    <input type="text" id="search-input" placeholder="Search SkylarVox" oninput="performSearch()">
 </div>
 
 
@@ -240,17 +259,32 @@ li{
         <div class="row">
             <!-- First iframe container -->
             <div class="iframe-container">
-                <a href="https://doods.pro/d/5nz1giwtvn09">
-                    <iframe width="600" height="480" src="https://doods.pro/e/5nz1giwtvn09" scrolling="no" frameborder="0" allowfullscreen="true" data-category="Hot" data-caption="A Hot Brunette"></iframe>
-                </a>
-            </div>
+                    <iframe width="600" height="480" src="https://doods.pro/e/5nz1giwtvn09" scrolling="no" frameborder="0" allowfullscreen="true" data-category="Hot" data-caption="A Hot Brunette" ></iframe>
+                    <div class="container">
+  <a href="https://doods.pro/d/5nz1giwtvn09" class="download-button" id="downloadButton">Download</a></div>
+</a>
+</div>
             
             <!-- Second iframe container -->
             <div class="iframe-container">
-                <a href="https://doods.pro/d/5nz1giwtvn09">
                     <iframe width="600" height="480" src="https://doods.pro/e/5nz1giwtvn09" scrolling="no" frameborder="0" allowfullscreen="true" data-category="Category2" data-caption="Caption2"></iframe>
-                </a>
-            </div>
+                     <div class="container">
+  <a href="https://doods.pro/d/fuck" class="download-button" id="downloadButton">Download</a></div>
+</a>
+</div>
+              
+    
+            <!-- Second iframe container -->
+            <div class="iframe-container">
+                    <iframe width="600" height="480" src="https://doods.pro/e/5nz1giwtvn09" scrolling="no" frameborder="0" allowfullscreen="true" data-category="Category2" data-caption="Caption2"></iframe>
+                     <div class="container">
+  <a href="https://doods.pro/d/fuck" class="download-button" id="downloadButton">Download</a></div>
+</a>
+</div>
+              
+    
+
+
 
 
             <!-- Add more iframe containers as needed -->
@@ -274,49 +308,32 @@ function closePopup() {
 }
 
     function performSearch() {
-        const searchInput = document.getElementById('search-input').value.toLowerCase();
+    const searchInput = document.getElementById('search-input').value.toLowerCase();
 
-        // Loop through all iframes
-        const iframes = document.querySelectorAll('iframe');
-        iframes.forEach((iframe) => {
-            const category = iframe.getAttribute('data-category').toLowerCase();
-            const caption = iframe.getAttribute('data-caption').toLowerCase();
+    // Loop through all iframes
+    const iframes = document.querySelectorAll('.iframe-container');
+    iframes.forEach((iframeContainer) => {
+        const iframe = iframeContainer.querySelector('iframe');
+        const category = iframe.getAttribute('data-category').toLowerCase();
+        const caption = iframe.getAttribute('data-caption').toLowerCase();
+        const downloadButton = iframeContainer.querySelector('.download-button');
 
-            // Check if the category or caption contains the search term
-            const categoryMatch = category.includes(searchInput);
-            const captionMatch = caption.includes(searchInput);
+        // Check if the category or caption contains the search term
+        const categoryMatch = category.includes(searchInput);
+        const captionMatch = caption.includes(searchInput);
 
-            // Show the iframe if it matches either category or caption
-            if (categoryMatch || captionMatch || searchInput === '') {
-                iframe.style.display = 'block';
-            } else {
-                iframe.style.display = 'none';
-            }
-        });
-    }
-
-// JavaScript to redirect the iframe when the container is clicked
-    document.getElementById('myIframe').addEventListener('click', function () {
-        var iframeSrc = document.querySelector('#myIframe iframe').src;
-        window.location.href = iframeSrc;
+        // Show or hide the iframe container and download button based on the matches
+        if (categoryMatch || captionMatch || searchInput === '') {
+            iframeContainer.style.display = 'block';
+            downloadButton.style.display = 'block';
+        } else {
+            iframeContainer.style.display = 'none';
+            downloadButton.style.display = 'none';
+        }
     });
-        // JavaScript to add controls, unmute, and expand to full screen on click
-        const iframes = document.querySelectorAll('iframe');
+}
 
-        iframes.forEach((iframe) => {
-            iframe.addEventListener('click', () => {
-                if (iframe.requestFullscreen) {
-                    iframe.requestFullscreen();
-                } else if (iframe.mozRequestFullScreen) {
-                    iframe.mozRequestFullScreen();
-                } else if (iframe.webkitRequestFullscreen) {
-                    iframe.webkitRequestFullscreen();
-                }
 
-                iframe.setAttribute('controls', 'true');
-                iframe.muted = false;
-            });
-        });
     </script>
 </body>
 </html>
