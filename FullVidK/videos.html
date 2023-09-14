@@ -297,22 +297,8 @@ li{
             
 
   <script>
-
 // Get the current URL path
-        const path = window.location.pathname;
         
-        // Remove the leading slash and ".html" extension
-        const page = path.slice(1, -5); // Assuming all your pages end with ".html"
-
-        // Load the content dynamically based on the route
-        fetch(`./${page}.html`)
-            .then(response => response.text())
-            .then(content => {
-                document.getElementById('content').innerHTML = content;
-            })
-            .catch(error => {
-                console.error(`Error loading page: ${error}`);
-            });
           
     // JavaScript to perform the search within iframes as you type
     
