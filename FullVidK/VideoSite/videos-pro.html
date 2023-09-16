@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Roboto+Mono&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,500&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://uncknownguy.github.io/FullVidK/icon/videos-pro.png" type="image/x-icon">  
+    <title>FullVidK | VideosPro</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; /* Set a different font for all text */
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        /* Search input styles */
+#search-input {
+    padding: 10px; /* Increased padding for better touch experience */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Larger font size */
+    width: 200px; /* Adjust the width as needed */
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333; /* Text color */
+}
+
+/* Search button styles */
+#search-button {
+    padding: 10px 20px; /* Increased padding for better touch experience */
+    background-color: #f2e127;
+    color: black;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px; /* Larger font size */
+    transition: background-color 0.3s; /* Add smooth background color transition */
+}
+
+/* Hover effect for the search button */
+#search-button:hover {
+    background-color: #ff4500; /* Darker orange on hover */
+}
+
+
+
+/* Hide the search bar on scroll */
+#search-bar {
+    position: fixed;
+    top: -50px; /* Adjust as needed to hide the search bar */
+    transition: top 0.3s; /* Add smooth transition effect */
+    width: 100%;
+    z-index: 999; /* Ensure it's above other elements */
+}
+
+
+        /* Main content styles */
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Add a small gap between videos */
+        }
+        
+.video-container {
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Added box shadow */
+            background-color: #444;
+            max-width: 640px;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 250px; /* Adjust the height as needed */
+            border: none;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Added box shadow */
+        }
+        .video-description {
+            margin-top: 10px;
+            color: white; /* Text color for descriptions */
+            background-color: #333; /* Added background color for description box */
+            padding: 10px; /* Added padding for description box */
+            border-radius: 5px; /* Added border radius for description box */
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Added box shadow for description box */
+        }
+        .download-button {
+            background-color: #f2e127;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+            text-decoration: none; /* Remove underlines */
+            display: inline-block; /* Display download buttons inline */
+            text-align: center;
+            border-radius: 5px; /* Added border radius for download button */
+        }
+          
+          
+          /* Style for the countdown message */
+.countdown-message {
+    display: none; /* Initially hide the countdown message */
+    position: fixed; /* Fixed position to center it on the page */
+    top: 42%; /* Position it vertically at the center */
+    left: 50%; /* Position it horizontally at the center */
+    transform: translate(-50%, -50%); /* Centering trick */
+    background-color: #fff; /* Background color */
+    color: #333; /* Text color */
+    padding: 10px 20px; /* Padding around the message */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Box shadow for a subtle effect */
+    z-index: 2; /* Above the "No results found" message */
+}
+
+/* Style for the "No results found" message */
+.no-results-message {
+    display: none; /* Initially hide the "No results found" message */
+    position: fixed; /* Fixed position to center it on the page */
+    top: 50%; /* Position it vertically at the center */
+    left: 50%; /* Position it horizontally at the center */
+    transform: translate(-50%, -50%); /* Centering trick */
+    background-color: #fff; /* Background color */
+    color: red; /* Text color */
+    padding: 10px 20px; /* Padding around the message */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Box shadow for a subtle effect */
+    z-index: 1; /* Below the countdown message */
+}
+
+/* Style for the name */
+.name {
+    padding: 10px; /* Adjust the padding as needed */
+    text-align: center; /* Center the text horizontally */
+    font-family: 'Pacifico', cursive; /* Use the 'Pacifico' font */
+    font-size: 24px; /* Adjust the font size as needed */
+    color: white; /* Text color */
+}
+        
+
+        /* Disable right-click on the page */
+        body {
+            user-select: none;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        /* Menu styles */
+    
+.menu {
+    list-style-type: none;
+    margin: 1px;
+    padding: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    text-decoration: none; /* Remove underlines */
+    display: block; /* Display download buttons inline */
+}
+
+.menu li {
+    display: inline;
+    margin-right: 20px;
+    width: 100%;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #ff5733;
+}
+
+/* Menu blocks */
+.menu-block {
+    display: block;
+    margin-top: 10px; /* Add space between menu items */
+}
+
+/*Comfortable
+
+/* Add this code to your existing CSS */
+
+/* Media query for tablets (768px to 1023px) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Adjust styles for tablet screens here */
+
+    /* Increase padding and font size for search input and button */
+    #search-input {
+        padding: 12px;
+        font-size: 18px;
+    }
+
+    #search-button {
+        padding: 12px 20px;
+        font-size: 18px;
+    }
+
+    /* Adjust video container width and margins */
+    .video-container {
+        width: 48%; /* Display two videos side by side */
+        margin: 10px; /* Reduce margins for better spacing */
+    }
+
+    /* Increase font size for video descriptions */
+    .video-description {
+        font-size: 16px;
+    }
+}
+
+/* Media query for desktop screens (1024px and above) */
+@media only screen and (min-width: 1024px) {
+    /* Adjust styles for desktop screens here */
+
+    /* Increase padding and font size for search input and button */
+    #search-input {
+        padding: 14px;
+        font-size: 20px;
+    }
+
+    #search-button {
+        padding: 14px 24px;
+        font-size: 20px;
+    }
+
+    /* Adjust video container width and margins */
+    .video-container {
+        width: 30%; /* Display multiple videos side by side */
+        margin: 15px; /* Increase margins for better spacing */
+    }
+
+    /* Increase font size for video descriptions */
+    .video-description {
+        font-size: 18px;
+    }
+
+    /* Adjust other styles as needed for desktop screens */
+}
+/* Media query for tablets (768px to 1023px) */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Display 4 iframes in a row for tablets */
+    main {
+        flex-wrap: wrap;
+    }
+    
+    
+
+    .video-container {
+        width: calc(28% - 20px); /* 4 iframes in a row with some spacing */
+    }
+}
+iframe {
+            width: 90%;
+            height: 120px; /* Adjust the height as needed */
+            border: none;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Added box shadow */
+        }
+
+       #search-input {
+        padding: 12px;
+        font-size: 10px;
+    }
+
+    #search-button {
+        padding: 12px 20px;
+        font-size: 10px;
+    }
+
+/* Media query for tablets (768px to 1023px) */
+@media only screen and (min-width: 460px) and (max-width: 768px) {
+    /* Display 4 iframes in a row for tablets */
+    
+iframe {
+            width: 90%;
+            height: 250px; /* Adjust the height as needed */
+            border: none;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Added box shadow */
+        }
+
+        /* Style for the "Results Found" message */
+/* Style for the "Results Found" message */
+#results-message {
+    font-family: 'Poppins', Sans-Serif;
+    font-size: 20px; /* Adjust the font size as needed */
+    margin-top: 10px;
+    color: #333; /* Text color */
+    padding: 0px; /* Add padding for spacing */
+    border: 1px solid black; /* Orange border */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center the text horizontally */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Small box shadow */
+    opacity: 0; /* Initially, set opacity to 0 to make it invisible */
+    transition: opacity 0.5s ease-in-out; /* Add a smooth fade-in/out transition */
+    text-transform: uppercase;
+}
+
+
+
+        /* Style for the count of results */
+        #result-count {
+            color: red; /* Make it red */
+            
+            font-size: 18px; /* Adjust font size as needed */
+        }
+
+
+
+    </style>
+</head>
+<body>
+  
+    <header>
+   
+  <div class="name">
+    <h1>FullVidK</h1>
+</div>
+
+        <input type="text" id="search-input" placeholder="Search Hard X">
+        <button id="search-button">Search</button>
+    </header>
+    
+        <!-- Navigation Menu -->
+    <nav>
+        <ul class="menu">
+          <li><a href="./pornstars">Top</a></li>
+            <li><a href="./videos">VLite</a></li>
+            <li><a href="https://www.hentaicity.com?ref=UnknownGuy">Anime</a></li>
+            <li><a href="https://t.me/FullVidKbot?start=02gy1m">Telegram</a></li>
+    <!-- Iframe containers go here -->
+</div>
+
+<!-- Add a message element for the "Results Found" message -->
+<p id="results-message" class="results-message"></p>
+
+<!-- Add a message element for the countdown -->
+<p id="countdown-message" class="countdown-message"></p>
+
+<!-- Add a message element for no results -->
+<p id="no-results-message" class="no-results-message">No results found for your description.</p>
+
+    <main>
+        <div class="video-container">
+            <!-- Use the iframe to display the video -->
+            <iframe src="https://doods.pro/e/5nz1giwtvn09" frameborder="0" allowfullscreen></iframe>
+            <p class="video-description">
+               BonnieBang A hot brunette realtor helped get the discount. She Straddled my DICK
+            </p>
+            <!-- Download button after the iframe -->
+            <a class="download-button" href="https://doods.pro/d/5nz1giwtvn09" download>Download</a>
+        </div>
+        
+  <script type="text/javascript">
+	atOptions = {
+		'key' : '11d0131db6a132dfd86eee810cc0023c',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="//www.profitablecreativeformat.com/11d0131db6a132dfd86eee810cc0023c/invoke.js"></scr' + 'ipt>');
+</script>
+  
+        
+        <!-- Add more video descriptions, iframes, and download buttons as needed -->
+    </main>
+    <footer>
+        <!-- Add footer content, such as comments or related videos, here -->
+    </footer>
+    <script>
+    
+    // JavaScript code to hide/show the search bar on scroll
+let prevScrollPos = window.pageYOffset;
+
+window.onscroll = function() {
+    const currentScrollPos = window.pageYOffset;
+    const searchBar = document.getElementById('search-bar');
+
+    if (prevScrollPos > currentScrollPos) {
+        // User is scrolling up, show the search bar
+        searchBar.style.top = '0';
+    } else {
+        // User is scrolling down, hide the search bar
+        searchBar.style.top = '-50px'; // Adjust as needed
+    }
+
+    prevScrollPos = currentScrollPos;
+};
+
+
+// JavaScript code for search functionality
+document.getElementById('search-button').addEventListener('click', () => {
+    const searchText = document.getElementById('search-input').value.toLowerCase();
+    const videoContainers = document.querySelectorAll('.video-container');
+    let noResultsFound = true; // Flag to track if no results were found
+    let count = 0; // Initialize a count variable
+
+    videoContainers.forEach((container) => {
+        const description = container.querySelector('.video-description');
+        const descriptionText = description.textContent.toLowerCase();
+
+        if (descriptionText.includes(searchText)) {
+            container.style.display = 'block';
+            noResultsFound = false; // There are results, so set the flag to false
+            count++; // Increment the count for each matching iframe
+        } else {
+            container.style.display = 'none';
+        }
+    });
+
+    // Show or hide the "No results found" and "Results Found" messages based on the flag and count
+    const noResultsMessage = document.getElementById('no-results-message');
+    const resultsMessage = document.getElementById('results-message');
+    const countdownMessage = document.getElementById('countdown-message');
+    const resultCount = document.getElementById('result-count'); // Added this line
+
+    if (noResultsFound) {
+        // Display the "No results found" message
+        noResultsMessage.style.display = 'block';
+        resultsMessage.style.display = 'none';
+
+        // Show countdown message and redirect after a delay
+        countdownMessage.style.display = 'block';
+        countdownMessage.textContent = `Redirecting in 5 seconds...`;
+
+        // Redirect after a delay
+        let seconds = 5;
+        const countdownInterval = setInterval(() => {
+            seconds--;
+            countdownMessage.textContent = `Redirecting in ${seconds} seconds...`;
+
+            if (seconds === 0) {
+                clearInterval(countdownInterval);
+                window.location.href = './videos-pro';
+            }
+        }, 1000); // Update countdown every 1 second
+    } else {
+        // Display the "Results Found" message with the count
+        noResultsMessage.style.display = 'none';
+        resultsMessage.style.display = 'block';
+        // Make the "Results Found" message visible with a fade-in effect
+resultsMessage.style.opacity = '1';
+
+        resultsMessage.textContent = `videos found: ${count}`;
+        resultCount.textContent = count; // Set the count of results
+
+        // Hide the countdown message if it was shown
+        countdownMessage.style.display = 'none';
+    }
+});
+
+    </script>
+</body>
+</html>
