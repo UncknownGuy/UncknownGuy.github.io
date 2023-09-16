@@ -5,6 +5,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="icon" href="./icon/videos.png">
     <title>FullVidK | Videos</title>
     </head>
 <style>
@@ -241,19 +242,19 @@ li{
   <!-- Search Block -->
 <div class="container">
     <h1 style="text-align: center;">FullVidK</h1>
-
+<div class="search-block id="myIframe>
+    <input type="text" id="search-input" placeholder="Search SkylarVox" oninput="performSearch()">
+</div>
     <!-- Navigation Menu -->
     <nav>
         <ul class="menu">
           <li><a href="./pornstars">Top</a></li>
-            <li><a href="#">Home</a></li>
+            <li><a href="./videos-pro">VPro</a></li>
             <li><a href="https://www.hentaicity.com?ref=UnknownGuy">Anime</a></li>
+            <li><a href="https://t.me/FullVidKbot?start=02gy1m">Telegram</a></li>
     <!-- Iframe containers go here -->
 </div>
 <!-- Search Block -->
-<div class="search-block id="myIframe>
-    <input type="text" id="search-input" placeholder="Search SkylarVox" oninput="performSearch()">
-</div>
 
 
 <div class="container">
@@ -267,28 +268,6 @@ li{
   <a href="https://doods.pro/d/5nz1giwtvn09" class="download-button" id="downloadButton">Download</a></div>
 </a>
 </div>
-            
-            <!-- Second iframe container -->
-            <div class="iframe-container">
-                    <iframe width="600" height="480" src="https://doods.pro/e/5nz1giwtvn09" scrolling="no" frameborder="0" allowfullscreen="true" data-category="Category2" data-caption="Caption2"></iframe>
-                     <div class="container">
-  <a href="https://doods.pro/d/fuck" class="download-button" id="downloadButton">Download</a></div>
-</a>
-</div>
-              
-    
-            <!-- Second iframe container -->
-            <div class="iframe-container">
-                    <iframe width="600" height="480" src="https://doods.pro/e/5nz1giwtvn09" scrolling="no" frameborder="0" allowfullscreen="true" data-category="Category2" data-caption="Caption2"></iframe>
-                     <div class="container">
-  <a href="https://doods.pro/d/fuck" class="download-button" id="downloadButton">Download</a></div>
-</a>
-</div>
-              
-    
-
-
-
 
             <!-- Add more iframe containers as needed -->
         </div>
@@ -299,7 +278,38 @@ li{
   <script>
 // Get the current URL path
         
-          
+        // Function to preload images and HTML pages
+        function preloadImagesAndPages() {
+            // Array of image URLs to preload
+            var imageUrls = [
+                'https://cdni.pornpics.com/1280/7/631/80085723/80085723_003_c111.jpg',
+                'https://cdni.pornpics.com/1280/7/555/64581111/64581111_006_3ece.jpg',
+                // Add more image URLs as needed
+            ];
+
+            // Array of HTML page URLs to preload
+            var pageUrls = [
+                'pornstars.html',
+                'live-stars.html',
+                // Add more page URLs as needed
+            ];
+
+            // Preload images
+            for (var i = 0; i < imageUrls.length; i++) {
+                var img = new Image();
+                img.src = imageUrls[i];
+            }
+
+            // Preload HTML pages
+            for (var j = 0; j < pageUrls.length; j++) {
+                var page = new XMLHttpRequest();
+                page.open('GET', pageUrls[j], true);
+                page.send();
+            }
+        }
+        
+   });
+        
     // JavaScript to perform the search within iframes as you type
     
     function openPopup(iframeSrc) {
