@@ -1,0 +1,53 @@
+
+
+@media screen and (min-width: 768px) {
+    .bg {
+    height: 100vh;
+    padding: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('./src/image.jpg');
+    }
+  }
+
+  
+@media screen and (min-width: 768px) {
+    .how-to-use h1 {
+        transition-duration: 0.5s;
+        transition-delay: 0.2s;
+        font-size: 25px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    .support {
+        transition-duration: 0.5s;
+        transition-delay: 0.2s;
+        font-size: 0.7rem;
+    }
+  }
+
+  
+@media screen and (min-width: 768px) {
+    .how-to-use p {
+      padding: 12px;
+      border-radius: 8px;
+      background-color: rgba(255,255,255,.1);
+    }
+}
+
+
+  @media screen and (min-width: 768px) {
+    .sheet{
+      font-weight: 700;
+      font-size: 15px;
+    }
+}
+
+  @media screen and (min-width: 768px) {
+    video {
+      width: auto;
+      height: auto;
+    }
+}

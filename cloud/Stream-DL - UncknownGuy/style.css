@@ -5,13 +5,15 @@ body{
   padding: 0;
 }
 
+
 .bg{
   color: white;
   height: 100vh;
   padding: 0px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url('./src/bg.jpg');
+  background-position: center;
+  background-image: url('./src/Stream-DL-background-Cylon2.jpg');
 }
 
 .package{
@@ -27,7 +29,7 @@ body{
   text-shadow: 1px 2px rgba(25,255,255, 0.3);
   background-color: rgba(0,0,0,0.5);
   backdrop-filter: blur(10px);
-  box-shadow: 0px 0px 20px 10px rgba(0,0,0, 0.5);
+  box-shadow: 0px 0px 25px 10px rgba(0,0,0, 0.5);
   backdrop-filter: blur(10px);
   text-align: center;
   display: flex;
@@ -36,22 +38,21 @@ body{
 }
 
 .how-to-use{
-  margin: auto;
-  padding: 0px 5px 0px 0px;
+  margin-top: 50px;
 }
 .how-to-use h1{
-  text-shadow: 1px 2px rgba(255,255,255, 0.5);
-  backdrop-filter: blur(10px);
+  text-shadow: 1px 1px rgba(255,255,255, 0.5);
   text-transform: uppercase;
 }
+
 .how-to-use p{
   margin-top: 10px;
   border-radius: 3px;
   padding: 8px;
   background-color: rgba(255,255,255,.1);
-  box-shadow: 0px 0px 5px 0px rgba(255,255,255, .2);
   color: rgba(255,255,255, 0.7);
 }
+
 
 .sheet{
   color: rgba(255,255,255,1);
@@ -62,6 +63,8 @@ body{
   font-weight: 500;
   font-size: 8px;
 }
+
+
 
 .sheet p{
   font-family: 'Monospace', Sans-Serif;
@@ -76,13 +79,16 @@ body{
   font-weight: 500;
   font-size: 8px;
 }
+
 #step{
   padding-top: 10px;
 }
+
 #link {
   color: white;
   text-decoration: none;
 }
+
 #link:hover{
   color: rgba(255,255,255, 0.7);
   text-decoration: none;
@@ -97,4 +103,37 @@ video{
   padding: 50px 0px 50px 0px;
   width: 100%;
   height: auto;
+}
+
+
+
+.tutorial {
+  margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      width: auto;
+      height: auto;
+}
+.tutorial h1{
+ text-shadow: 1px 2px rgba(255,255,255, 0.5);
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.tutorial p{
+  font-size: 15px;
+  padding: 80px;
+  color: rgba(0,0,0, .8);
+  background-color: white;
+  border-radius: 5px;
+}
+
+.tutorial-video{
+  margin-top: 20px;
+  margin-bottom: 5vh;
+}
+
+.tutorial-video h1{
+  margin-bottom: 25px;
+  text-align: center;
 }
