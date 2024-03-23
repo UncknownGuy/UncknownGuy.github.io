@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Streaming</title>
+  <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: rgb(24, 24, 24);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .m3U8 {
+      width: auto;
+    }
+
+    #my-video {
+      width: 100vh;
+      height: 250px;
+      border-radius: 10px;
+      border: 5px solid transparent;
+    }
+
+    #my-video:hover {
+      border: 5px solid rgb(255, 166, 0);
+    }
+  </style>
+</head>
+<body>
+  <div class="m3U8">
+    <video id="my-video" class="video-js" controls preload="auto" data-setup="{}">
+      <source poster="./thumbnail.jpg" src="https://edge17-sof.live.mmcdn.com/live-edge/amlst:floret_joy-sd-9646a99bae00408296a7217f28622dc4b25cd93f54a1003fe73a058737c4bf7b_trns_h264/chunklist_w813622026_b1148000_t64RlBTOjMwLjA=.m3u8" type="application/x-mpegURL">
+    </video>
+  </div>
+  <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-quality-levels/2.1.0/videojs-contrib-quality-levels.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-hls-quality-selector/2.3.3/videojs-hls-quality-selector.min.js"></script>
+  <script>
+    var player = videojs('my-video', {
+      plugins: {
+        videoJsResolutionSwitcher: {
+          default: 'medium',
+          dynamicLabel: true
+        }
+      }
+    });
+  </script>
+</body>
+</html>
