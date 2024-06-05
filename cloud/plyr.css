@@ -4,8 +4,8 @@
   width: 100%;
   height: auto;
         }
-.container .mt-3{
-  z-index: -5;
+.m3u8-player{
+  z-index: 5;
 }
         .plyr {
             font-family: 'Poppins', sans-serif;
