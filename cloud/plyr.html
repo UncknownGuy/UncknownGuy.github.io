@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show the theme pop-up message after a 2-second delay
     setTimeout(() => {
         showThemeMessage(userTheme);
-    }, 2000);
+    }, 1200);
 });
 
 // Event listener to detect changes in user's preferred color scheme
@@ -169,9 +169,6 @@ mediaQueryList.addEventListener('change', e => {
     applyTheme(newTheme);
     console.log(`User theme changed to ${newTheme}`);
     showThemeMessage(newTheme);
-    setTimeout(() => {
-        location.reload(); // Reload the page to apply the theme changes
-    }, 5000); // Refresh after 5 seconds to allow user to see the message
 });
 
 // Event listener to handle theme changes initiated by the user
