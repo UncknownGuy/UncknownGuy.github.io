@@ -1,0 +1,51 @@
+/* Styles for dark theme */
+body.dark-mode {
+    /* Define dark theme styles for the entire page */
+    background-color: #212121;
+    color: #ffffff;
+}
+
+body.dark-mode .glass{
+  width: 100%;
+  height: 60vh;
+/* Add Rgb With Back Drop Filter*/
+  position: absolute;
+  background-color: rgba(0,0,0,.5);
+  backdrop-filter: blur(10px);
+}
+ 
+body.dark-mode .theme-popup {
+  background-color: rgba(0,0,0,.5);
+  color: #ffffff;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.blur-bg.show {
+  display: flex;
+}
+
+
+body.dark-mode #addButton{
+  transition: transform 0.5s ease
+  box-shadow: inset -15px 0 25px -15px rgba(0, 0, 0, 0.5);
+  color: rgba(0,0,0,1);
+  background-color: rgba(255,255,255,1);
+}
+body.dark-mode #addButton:hover{
+  transform: scale(.95);
+  color: rgba(255,255,255,1);
+  background-color: rgba(0,0,0,1);
+}
+
+body.dark-mode #pasteButton{
+  border: 3px solid white;
+  transition: transform 0.5s ease
+  color: rgba(0,0,0,1);
+  background-color: rgba(255,255,255,1);
+}
+
+body.dark-mode #pasteButton:hover{
+  transform: scale(.95);
+  color: rgba(255,255,255,1);
+  background-color: rgba(0,0,0,1);
+}
