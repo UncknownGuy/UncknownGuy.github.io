@@ -68,11 +68,6 @@
 .bgb{
   width: 100%;
   height: 60vh;
-  z-index: -1;
-  position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .bgb img{
   width: 100%;
