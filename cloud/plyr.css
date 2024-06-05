@@ -1,0 +1,263 @@
+        .plyr {
+            font-family: 'Poppins', sans-serif;
+        }
+        .plyr {
+            color: #fff !important;
+        }
+        .plyr--audio, .plyr--video {
+            background-color: #333 !important;
+        }
+        .plyr__controls .plyr__control.plyr__control--overlaid svg path,
+        .plyr__controls .plyr__control.plyr__control--overlaid svg polygon {
+            fill: #fff !important;
+        }
+        .plyr__controls .plyr__menu__container {
+            background: #333 !important;
+        }
+        .plyr__control, .plyr__control:hover, .plyr__control:focus {
+            color: #fff !important;
+        }
+        .plyr__progress--played, .plyr__volume--display {
+            background: #fff !important;
+        }
+        .plyr__progress--buffer {
+            background: rgba(255, 255, 255, 0.5) !important;
+        }
+        .plyr__progress--played {
+            background: #fff !important;
+        }
+        .plyr__volume--display::before {
+            background: #fff !important;
+        }
+        .plyr__volume--display::after {
+            background: #fff !important;
+        }
+        .plyr__tooltip {
+            background: #333 !important;
+            color: #fff !important;
+        }
+        .plyr__controls .plyr__time {
+            color: #fff !important;
+        }
+        .plyr__controls button[aria-expanded="true"]::after {
+            color: #fff !important;
+        }
+        .plyr__controls button:hover, .plyr__controls button:focus {
+            background: rgba(255, 255, 255, 0.1) !important;
+        }
+        body {
+          background-color: rgba(0,0,0,.1);
+          margin: 0;
+          width: 100%;
+          height: 40vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+        }
+
+
+.glass{
+  width: 100%;
+  height: 60vh;
+/* Add Rgb With Back Drop Filter*/
+  position: absolute;
+  background-color: rgba(255,255,255,.5);
+  backdrop-filter: blur(10px);
+}
+
+.bgb{
+  width: 100%;
+  height: 60vh;
+  z-index: -1;
+  position: relative;
+  background-image: url('https://cdn.sex.com/images/pinporn/2022/03/13/26864205.gif?width=460');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+        .col-6 {
+            width: 100%;
+            min-height: 26vh;
+            max-height: 28vh;
+        }
+        .placeholder {
+            background-color: rgba(10, 142, 199, 1);
+        }
+        .card-body {
+            margin: 0px;
+            padding: 0px;
+        }
+        .card {
+            position: relative;
+        }
+
+.image-placeholder {
+    width: 300px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    background: linear-gradient(to bottom right, rgba(0,0,0,1), #dddddd); /* Adjust gradient colors as needed */
+}
+
+.card{
+  padding: 0;
+}
+
+/* Pop-up Box Styles */
+.theme-popup {
+    display: flex; /* Use flexbox to center the content */
+    position: fixed;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    top: 50%; /* Position at 50% from the top */
+    left: 50%; /* Position at 50% from the left */
+    transform: translate(-50%, -50%); /* Move back by 50% of its own width and height */
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+}
+
+/* Fade-in animation */
+.show-popup {
+    display: block;
+    opacity: 1;
+}
+        
+.placeholder-container {
+    position: relative;
+}
+
+.placeholder-background {
+  padding: 15px;
+    width: 100%;
+    height: 25vh; /* Adjust height as needed */
+    background-color: #f0f0f0; /* Adjust background color as needed */
+}
+
+.placeholder-wave {
+    width: 100%;
+    height: 25vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+
+
+.placeholder-wave::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, rgba(0,0,0,.1) 50%, transparent 100%);
+    animation: wave-animation 1.5s infinite;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+
+.m3u8-player{
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    box-shadow: rgba(0,0,0,.5) 0px 2px 4px 0px, rgba(255,255,255,.5) 0px 2px 16px 0px;
+}
+.m3u8-player {
+  border: 5px solid rgba(0,0,0,.1);
+  padding: 15px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* CSS code to center the spinner within the buffer shower */
+.buffer-shower {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);/* Semi-transparent white background */
+    z-index: 1000; /* Ensure the spinner is above other content */
+}
+
+.spinner-grow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    display: none;
+}
+
+.popup-container::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+}
+
+#addButton{
+  transition: transform 0.5s ease
+  box-shadow: inset -15px 0 25px -15px rgba(0, 0, 0, 0.5);
+  color: rgba(255,255,255,.6);
+  background-color: rgba(0,0,0,1);
+}
+#addButton:hover{
+  transform: scale(.95);
+  color: rgba(255,255,255,1);
+  background-color: rgba(0,0,0,.7);
+}
+
+#pasteButton{
+  transition: transform 0.5s ease
+  color: rgba(255,255,255,.6);
+  background-color: rgba(0,0,0,1);
+}
+
+#pasteButton:hover{
+  transform: scale(.95);
+  color: rgba(255,255,255,1);
+  background-color: rgba(0,0,0,.7);
+}
+
+.form-control{
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
