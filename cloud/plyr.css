@@ -4,7 +4,9 @@
   width: 100%;
   height: auto;
         }
-
+.container .mt-3{
+  z-index: -5;
+}
         .plyr {
             font-family: 'Poppins', sans-serif;
         }
