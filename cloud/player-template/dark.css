@@ -1,0 +1,89 @@
+        :root {
+  --white-color: rgba(255, 255, 255, 1);
+  --empty-white-color: rgba(255, 255, 255, .1);
+  --white-half-color: rgba(255, 255, 255, .5);
+  --white-hover-color: red;
+  --white-focus-color: rgba(115, 115, 115, 1);
+  --black-color:rgba(0, 0, 0, 1);
+  --black-half-color:rgba(0, 0, 0, .5);
+  --black-hover-color: rgba(64, 64, 64, .5);
+  --black-focus-color: rgba(166, 166, 166, 1)
+}
+
+body.dark-mode {
+  background-color: rgba(0, 0, 0, .8);
+}
+body.dark-mode h1{
+  color: white;
+}
+body.dark-mode .model-list-item{
+  border: 1px solid white;
+}
+
+body.dark-mode .title-container{
+  background-color: var(--black-color); /* Background color for the box */
+            padding: 20px; /* Padding for the box */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Add box shadow to the box */
+            border-radius: 10px; /* Add border radius to the box */
+}
+    @keyframes border-fade {
+      from {
+        border: 1px solid var(--white-half-color);
+      }
+      to {
+       border: 1px solid var(--white-color);
+      }
+    }
+body.dark-mode .model-list-item{
+  background-color: rgba(0,0,0,.3);
+  border: 1px solid var(--white-half-color);
+}
+
+  body.dark-mode .navigation-button:hover {
+     transform: scale(1.05);
+     color: var(--white-color);
+     border: 1px solid var(--white-color);
+     background-color: var(--white-none-color);
+  
+        }
+body.dark-mode .navigation-button:focus {
+    transform: scale(1.1);
+    background-color: var(--white-none-color);
+        }
+body.dark-mode .model-list-item:hover{
+  animation: border-fade .5s forwards;
+  border: 1px solid var(--white-color);
+  box-shadow: rgba(255, 255, 255, 0.24) 0px 0px 8px;
+}
+
+
+
+body.dark-mode .model-list-item a{
+  color: var(--white-half-color);
+}
+body.dark-mode .model-list-item a:hover{
+  color: var(--black-half-color);
+}
+body.dark-mode .model-list-item a:focus{
+  color: var(--white-color);
+}
+
+body.dark-mode .model-description {
+  color: var(--white-half-color);
+}
+body.dark-mode .model-image{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1px solid var(--white-half-color);
+  transition-delay: .1s;
+}
+body.dark-mode .model-image:hover{
+  box-shadow: rgba(0, 0, 0, 0.75) 2px 0px 8px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 15px;
+}
+body.dark-mode .model-image:focus{
+  border: 1px solid var(--empty-white-color);
+}
+body.dark-mode .navigation-buttons{
+  background-color: var(--black-color);
+}

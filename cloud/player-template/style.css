@@ -1,0 +1,162 @@
+.highlight-tags .px-6 span:hover{
+  animation: tag-hover .5s forwards;
+}
+body.dark-mode .highlight-tags .px-6 span:hover{
+  animation: tag-hover-dm .5s forwards;
+}
+body.dark-mode .icon-container {
+      color: white;
+    }
+ .plyr{
+  font-family: Poppins;
+  font-weight: 500;
+}
+   @keyframes tag-hover-dm {
+            0% {
+                color: transperent;
+            }
+            100% {
+                color: rgba(13, 115, 253, 1);
+            }
+        }
+
+body.dark-mode .highlight-tags .px-6 span {
+  background-color: rgba(13, 110, 253, .1);
+  color: rgba(255, 255, 255, .7);
+}
+
+
+ body.dark-mode .gradient-bg  {
+   box-shadow: rgba(13, 110, 253, .2) -150px 0px 20px;
+  background: linear-gradient(to right, rgba(13, 110, 253, .2), rgba(13, 110, 253, .5));
+  border: 4px solid rgba(1, 25, 61, 0.71);
+}
+
+ .dark-mode {
+  background: linear-gradient(to right, rgba(0,0,0,.5), rgba(255,255,255,0));
+}
+
+        @keyframes tag-hover {
+            0% {
+                color: transperent;
+            }
+            100% {
+                color: rgba(13, 110, 253, .5);
+            }
+        }
+        @keyframes scale-up {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+.bi-arrow-down-circle , .bi-arrow-down-circle-fill{
+  margin-right: 5px;
+  
+}
+
+.down-btn a .bi-arrow-down-circle-fill {
+            display: none;
+            
+        }
+        .down-btn a:hover .bi-arrow-down-circle {
+            display: none;
+        }
+        .down-btn a:hover .bi-arrow-down-circle-fill {
+            display: inline;
+           animation: scale-up 1s ease-in-out; 
+        
+        }
+
+#downloadLink:hover{
+  animation: fade 1.5s forwards;
+  border: 3px solid rgba(0,0,0,.1);
+  
+  transform: translateY(5px);
+}
+#downloadLink:focus{
+  border: 3px solid rgba(255,255,255,.5);
+}
+#downloadLink{
+  outline: 2px solid rgba(13, 110, 253, .5);
+  border: 3px solid rgba(0,0,0,.0);
+  box-shadow: rgba(13, 110, 253, .3) 0px 5px, rgba(0,0,0,.2) 0px 10px, rgba(13, 110, 253, .2) 0px 15px, rgba(0,0,0,.1) 0px 20px, rgba(13, 110, 253, .1) 0px 25px;
+}
+
+@keyframes fade {
+  0% {
+    outline: 2px solid rgba(13, 110, 253, .5);
+    transform: scale(1.05);
+    box-shadow: rgba(13, 110, 253, .5) 0px 5px, rgba(0,0,0,.2) 0px 10px, rgba(13, 110, 253, .3) 0px 15px, rgba(0,0,0,.1) 0px 20px, rgba(13, 110, 253, .1) 0px 25px;
+  }
+  100% {
+    outline: 2px solid rgba(13, 110, 253, 0);
+    transform: scale(1.0);
+    box-shadow: none;
+  }
+}
+
+.px-6 .text-base{
+  text-shadow: 0px .1px rgba(13, 110, 253, .5);
+  background: linear-gradient(to right, rgba(13, 110, 253, .2), rgba(255,255,255,.5));
+  outline: 1px solid rgba(13, 110, 253, .2);
+  border-radius: 16px;
+  padding: 8px;
+}
+body.dark-mode .px-6 .text-base{
+  color: rgba(255,255,255,.8);
+  background: linear-gradient(to right, rgba(13, 110, 253, .5), rgba(255,255,255,.5));
+  outline: 1px solid rgba(13, 110, 253, .3);
+  border-radius: 16px;
+  padding: 8px;
+}
+body.dark-mode .underline-animation::after {
+            background-color: white; /* Adjust the color of the underline */
+     }
+        
+.px-6 .text-xl{
+  padding: 0px 5px 15px 0px;
+}
+.px-6 .text-xl span{
+  color: rgba(13, 110, 253, .5);
+  background-color: rgba(13, 110, 253, .2);
+  border: 2px solid rgba(13, 110, 253, .1);
+  border-radius: 15px;
+  padding: 3px;
+  margin: auto;
+}
+body.dark-mode .px-6 .text-xl span{
+  color: rgba(13, 110, 253, .8);
+  background-color: rgba(13, 110, 253, .1);
+  border: 2px solid rgba(13, 110, 253, .5);
+  border-radius: 15px;
+  padding: 3px;
+  margin: auto;
+}
+body.dark-mode .px-6 .text-xl {
+  color: rgba(255, 255, 255, 1);
+}
+
+.px-6 .text-xl span:hover{
+  border: 2px solid rgba(13, 110, 253, .1);
+  border-radius: 15px;
+  padding: 3px;
+  animation: fade-away 2.5s forwards;
+  margin: auto;
+}
+
+@keyframes fade-away {
+  0% {
+    color: rgba(255, 255, 255, .9);
+  }
+  100%{
+    color: rgba(13, 110, 253, .5);
+  }
+}
+
+.text-shadow{
+  box-shadow: rgba(13, 110, 253, .1) 0px 2px 8px 0px;
+}
