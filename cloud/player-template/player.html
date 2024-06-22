@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player with Plyr.io</title>
+    <!-- Plyr.io CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css">
+    <link rel="stylesheet" href="https://uncknownguy.github.io/cloud/player-template/font.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<!-- Include the Tailwind CSS stylesheet -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://uncknownguy.github.io/cloud/player-template/style.css">
+</head>
+<style>
+    /* Basic styles for the video player container */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+    }
+    
+    
+    
+    .plyr{
+      width: 100%;
+    }
+    #player{
+      width: 100%;
+    }
+    
+
+
+.placeholder {
+  position: absolute;
+  linear-gradient(to right, rgba(11, 168, 243, .5), rgba(255,255,255,.5));
+  backdrop-filter: blur(25px);
+  width: 100%;
+  height: 205px;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 5s ease-out;
+
+}
+.placeholder.fade-out {
+  opacity: 0;
+}
+/* Wave effect CSS */
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 450% 100%;
+  background-image: linear-gradient(-45deg, transparent 33.33%, rgba(13, 110, 253, .5) 33.33%, rgba(13, 110, 253, .1) 66.66%, rgba(13, 110, 253, .1) 66.66%);
+  filter: blur(5px);
+  animation: animateWave 1s linear infinite;
+}
+
+@keyframes animateWave {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Define the fade-out animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+/* Apply the animation class */
+.fade-out {
+    animation: fadeOut 1s forwards; /* Adjust the duration as needed */
+}
+
+/* Custom CSS for hover effect */
+    .download-video-btn {
+      transition: border-color 0.5s ease;
+    }
+    .custom-popover {
+      box-shadow: 0px 8px 8px 0px rgba(0,0,0,.1);
+    }
+    
+.icon-container {
+      
+      display: inline-block;
+      position: relative;
+    }
+    .icon-container .filled-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity .5s ease-in-out;
+    }
+    
+    .icon-container:hover .filled-icon {
+      opacity: 1;
+    }
+    .icon-container:hover .outline-icon {
+      opacity: 0;
+    }
+    .custom-icon {
+      position: relative;
+      padding: 0px 10px;
+      font-size: 40px; /* Adjust the size as needed */
+
+    }
+    .highlight-tags .px-6 span {
+      color: rgba(0,0,0,.5);
+      background-color: rgba(13, 110, 253, .1);
+    }
+    
+::selection {
+      background-color: rgba(2, 70, 172, 0.2); /* Highlight background color */
+      color: rgba(13, 110, 253, .5); /* Highlight text color */
+    }
+
+.no-selection {
+    user-select: none; /* For modern browsers */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; /* For IE/Edge */
+}
+    .gradient-bg {
+   box-shadow: rgba(13, 110, 253, .2) -150px 0px 20px;
+  background: linear-gradient(to right, rgba(13, 110, 253, .2), rgba(255,255,255,.5));
+  border: 4px solid rgba(13, 110, 253, .1);
+}
+
+@keyframes slide-in {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+.animated-element {
+  animation: slide-in 0.5s ease-out;
+}
+
+.masked-image {
+  mask-image: linear-gradient(to bottom, transparent, black 60%);
+    transition: mask-position 0.3s ease;
+}
+
+.masked-image:hover {
+  mask-position: 0 100%; /* Example reveal effect on hover */
+}
+.parallax {
+  background-image: url('./thumbnail.png');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.text-base::selection {
+      background-color: rgba(2, 70, 172, 0.2); /* Highlight background color */
+      color: rgba(255,255,255,1); /* Highlight text color */
+    }
+    
+.text-xl span::selection {
+      background-color: rgba(0, 0, 0, 0.2); /* Highlight background color */
+      color: rgba(2, 70, 172, 1 ); /* Highlight text color */
+    }
+    
+.underline-animation {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px; /* Adjust the thickness of the underline */
+            top: 60%;
+            bottom: 0;
+            left: 0;
+            background-color: black; /* Adjust the color of the underline */
+            transition: width 0.3s ease; /* Adjust the duration and timing of the transition */
+        }
+
+        .underline-animation:hover::after {
+            width: 55%;
+        }
+    
+</style>
+<body class="hide-content">
+
+<div class="icon-head gradient-bg">
+  <div class="icon-container">
+  <i class="bi bi-arrow-left-circle custom-icon outline-icon"></i>
+  <i class="bi bi-arrow-left-circle-fill custom-icon filled-icon"></i>
+</div>  
+</div>
+
+    
+  <div class="plyr">
+    <video id="player" controls playsinline>
+      Your browser does not support the video tag.
+    </video>
+ 
+ <div class="placeholder" style="display: block"></div>
+ <div class="placeholder-background"  style="display: block"></div>
+  </div>
+  
+  
+<div class="gradient-bg">
+
+  
+  
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-1 underline-animation">Mountain <span>Sunset</span></div>
+    <p class="text-gray-700 text-base text-shadow">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+    </p>
+  </div>
+  
+ <li class="highlight-tags">
+  <div class="px-6 py-4">
+    <div class="flex flex-wrap">
+      <span class="m-1 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#teen</span>
+      <span class="m-1 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#hollywood</span>
+      <span class="m-1 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#mature</span>
+      <!-- Add more hashtags as needed -->
+      <span class="m-1 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#2024</span>
+      <span class="m-1 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#highqualitu</span>
+      <span class="m-1 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#top</span>
+    </div>
+  </div>
+</li>
+
+
+
+<div  class="d-flex p-5 justify-content-center">
+<!-- Download link for the video -->
+<div  class="down-btn no-selection">
+
+<a id="downloadLink" download class="inline-block  bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 active:bg-blue-800 download-video-btn text-white font-bold py-2 px-4 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"><i class="bi bi-arrow-down-circle"></i><i class="bi bi-arrow-down-circle-fill"></i>Download Video</a>
+</div></div>
+
+</div>
+    <!-- Plyr.io JavaScript -->
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+    <script>
+      document.addEventListener('copy', function (e) {
+            var selection = document.getSelection();
+            if (selection && selection.rangeCount > 0) {
+                var range = selection.getRangeAt(0);
+                var element = range.commonAncestorContainer;
+                
+                // Traverse up to find the element with the class `no-selection`
+                while (element && element.nodeType === 1) {
+                    if (element.classList.contains('no-selection')) {
+                        e.preventDefault(); // Prevent the copy event
+                        break;
+                    }
+                    element = element.parentNode;
+                }
+            }
+        });
+    </script>
+<!-- Bootstrap Bundle with Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const player = new Plyr('#player', {
+        // Options
+    });
+
+    // Manually add quality options
+    player.quality = {
+        default: 720,
+        options: [720, 480, 360, 240],
+        forced: true,
+        onChange: function(e) {
+            console.log('Quality changed to', e.label);
+        },
+    };
+
+    // Set initial source
+    player.source = {
+        type: 'video',
+        sources: [
+            {
+                src: 'https://vkvd448.mycdn.me/?srcIp=45.84.28.184&pr=40&expires=1719064966798&srcAg=CHROME_ANDROID&fromCache=1&ms=185.226.52.163&type=3&sig=cfZTgQ2i2jw&ct=0&urls=45.136.21.195&clientType=13&appId=512000384397&id=6699551754963&dl=1',
+                type: 'video/mp4',
+                size: 720,
+            },
+        
+            {
+                src: 'https://example.com/video_480p.mp4',
+                type: 'video/mp4',
+                size: 480,
+            },
+            {
+                src: 'https://example.com/video_360p.mp4',
+                type: 'video/mp4',
+                size: 360,
+            },
+            {
+                src: 'https://example.com/video_240p.mp4',
+                type: 'video/mp4',
+                size: 240,
+            },
+        ]
+    };
+
+
+// Function to set the download link with the provided video source
+function setDownloadLink(videoSource) {
+  // Get the download link element
+  const downloadLink = document.getElementById('downloadLink');
+
+  // Set the href attribute of the download link to the video source
+  downloadLink.href = videoSource;
+}
+
+// Example usage: Setting the 720p video source
+const videoSource720p = 'https://vkvd448.mycdn.me/?srcIp=45.84.28.184&pr=40&expires=1719064966798&srcAg=CHROME_ANDROID&fromCache=1&ms=185.226.52.163&type=3&sig=cfZTgQ2i2jw&ct=0&urls=45.136.21.195&clientType=13&appId=512000384397&id=6699551754963&dl=1';
+
+// Call the function to set the download link with the 720p video source
+setDownloadLink(videoSource720p);
+
+
+
+
+    // Function to perform random seek
+    function randomSeek() {
+        var duration = player.duration;
+        var randomTime = Math.random() * duration;
+
+        // Add wave effect to the .placeholder div
+        var placeholder = document.querySelector('.placeholder');
+        if (placeholder) {
+            placeholder.classList.add('wave');
+        }
+
+        player.currentTime = randomTime;
+        player.once('seeked', function() {
+            player.pause(); // Pause the video after seeking to the random frame
+
+            // Remove the wave effect and add fade-out effect
+            if (placeholder) {
+                placeholder.classList.remove('wave');
+                placeholder.classList.add('fade-out');
+
+                // Optionally, remove the element after the animation is done
+                placeholder.addEventListener('animationend', function() {
+                    placeholder.style.display = 'none';
+                }, { once: true });
+            }
+        });
+    }
+    
+// Function to format time in mm:ss format
+    function formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+    // Listen for Plyr's loadedmetadata event once
+    player.on('loadedmetadata', function() {
+        randomSeek();
+    });
+
+// Hide progress bar and time display initially
+    player.on('ready', function() {
+        const controls = document.querySelector('.plyr__controls');
+        controls.style.opacity = '0';
+        const timeDisplays = document.querySelectorAll('.plyr__time');
+        timeDisplays.forEach(display => display.textContent = '0:00');
+    });
+    // Hide progress bar and time display initially
+    player.on('ready', function() {
+        document.querySelector('.plyr__controls').style.opacity = '0';
+    });
+
+    // Show progress bar and time display when video starts playing
+    player.on('play', function() {
+        document.querySelector('.plyr__controls').style.opacity = '1';
+        
+        // Log the ASCII art cat to the console
+        console.log(`
+ /\_/\  
+( o.o ) 
+ > ^ <
+`);
+
+
+// Update time display every second while playing
+    player.on('timeupdate', function(event) {
+        const currentTime = event.detail.plyr.currentTime;
+        const currentTimeDisplay = document.querySelector('.plyr__time--current');
+        currentTimeDisplay.textContent = formatTime(currentTime);
+    });
+        // Reset to start from the beginning only if not already at the beginning
+        if (player.currentTime !== 0 && !player.seeking) {
+            player.currentTime = 0;
+        }
+    });
+
+    // Show progress bar and time display after rollback to start
+    player.on('seeked', function() {
+        if (player.currentTime === 0) {
+            document.querySelector('.plyr__controls').style.opacity = '1';
+        }
+
+    });
+});
+// Automatically play video when quality is changed
+    player.on('qualitychange', function() {
+        const wasPlaying = player.playing;
+
+        // Listen for when the quality change is complete
+        player.once('loadeddata', function() {
+            if (wasPlaying) {
+                player.play();
+            }
+        });
+    });
+   </script>
+<script src="https://uncknownguy.github.io/cloud/player-template/dark.js"></script>
+</body>
+</html>
