@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plyr.js Video Example with HLS and Quality Selection</title>
+    <title>Uncknownguy | HLS Player</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml"> <!-- Add this line -->
 <link rel="stylesheet" href="dark.css" id="theme-link">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://uncknownguy.github.io/cloud/plyr.css">
+    <link rel="stylesheet" href="plyr.css">
     <link rel="manifest" href="/menifest.json">
 </head>
 <body>
@@ -18,9 +19,6 @@
 <div id="themePopup" class="theme-popup"></div>
 <!-- Pop-up message container -->
 <div id="popupContainer" class="popup-container"></div> 
-
-
-
 <!-- Spinner -->
 <div id="bufferShower" class="buffer-shower" style="display:none;">
     <div class="spinner-grow-container">
@@ -30,28 +28,32 @@
     </div>
 </div>
 
-
-
-    <div class="container mt-3">
-        <div class="input-group mb-3">
-            <input type="text" id="m3u8Input" class="form-control" placeholder="Enter .m3u8 link" aria-label="m3u8 link">
-            <button class="btn btn-outline-secondary" type="button" id="pasteButton">
-                <i class="bi bi-clipboard"></i>
-            </button>
-            <button class="btn btn-light" type="button" id="addButton" style="display:none;">
-                <i class="bi bi-box-arrow-in-left"></i>
-            </button>
-        </div>
+<div class="container mt-3">
+    <div class="input-group mb-3">
+        <input type="text" id="m3u8Input" class="form-control" placeholder="Enter m3u8 HLS stream Link..." aria-label="m3u8 link">
+        <button class="btn btn-outline-secondary" type="button" id="pasteButton">
+            <i class="bi bi-clipboard"></i>
+        </button>
+        <button class="btn btn-light" type="button" id="addButton" style="display:none;">
+            <i class="bi bi-box-arrow-in-left"></i>
+        </button>
     </div>
+</div>
+
+
    
-   <div class="m3u8-player">
+   
+<div class="m3u8-player">
     <!-- Video Element -->
     <div id="video-container">
         <video id="player" style="position:absolute" style="display:none" playsinline controls></video>
     </div>
 
+
+
+
 <div class="loader">
-<div id="lazy" aria-hidden="true" style="opacity:1;">
+<div id="lazy" aria-hidden="true" style="position:relative" style="opacity:1;">
     <div class="placeholder-container">
         <div class="placeholder-background"></div>
         <div class="placeholder-wave"></div>
@@ -60,13 +62,104 @@
 </div>
 </div>
 
-          <div class="glass"></div>
-<div class="bgb">
-  <img src="https://cdn.elitebabes.com/content/lists/202308/6523f27c7a9b7_640.webp" width="100%" height="60vh" alt="Anime X"> 
+   <!-- Toggle Button -->
+<div class="latency-toggle">
+    <div class="inner-container">
+        <button id="lowLatencyToggle" type="button" class="btn btn-primary">Low Latency</button>
+    </div>
 </div>
 
 
+<div id="container">
+  <div class="glass"></div>
+<div class="bgb" style="display:block;">
+  <img src="https://cdn.sex.com/images/pinporn/2022/03/13/26864205.gif?width=460" alt="Anime X"> 
+</div>
+</div>
 
+<script>
+    // Get video element
+    const video = document.getElementById('player');
+
+    // Function to set media session metadata
+    function setMediaSessionMetadata() {
+      const mediaMetadata = new MediaMetadata({
+        title: 'HLS Stream Player',
+        artist: 'Plyr.github.io',
+        artwork: [
+          { src: 'https://wallpapercave.com/wp/wp2543406.jpg', sizes: '256x256', type: 'image/jpeg' }
+        ]
+      });
+
+      // Set media session metadata
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = mediaMetadata;
+      }
+    }
+    // Add event listener to set metadata when video starts playing
+    video.addEventListener('play', setMediaSessionMetadata);
+  </script>
+<script>
+    // Function to toggle the icons
+    function toggleIcons() {
+        const icon = document.getElementById('toggleIcon');
+        icon.classList.add('icon-toggle');
+
+        setTimeout(() => {
+            if (icon.classList.contains('bi-toggle-off')) {
+                icon.classList.replace('bi-toggle-off', 'bi-toggle-on');
+            } else {
+                icon.classList.replace('bi-toggle-on', 'bi-toggle-off');
+            }
+            icon.classList.remove('icon-toggle');
+        }, 300); // Match the transition duration
+    }
+
+    // Add an event listener to the button to call the toggleIcons function on click
+    document.getElementById('toggleButton').addEventListener('click', toggleIcons);
+</script>
+<script>
+ 
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('player');
+    const lowLatencyToggle = document.getElementById('lowLatencyToggle');
+    const m3u8Input = document.getElementById('m3u8Input');
+    const addButton = document.getElementById('addButton');
+
+    lowLatencyToggle.addEventListener('click', () => {
+        const source = m3u8Input.value;
+        const newSource = toggleLowLatencyParam(source);
+        if (newSource !== source) {
+            m3u8Input.value = newSource;
+            reloadVideo(newSource);
+        }
+    });
+
+    // Function to toggle the low latency parameter in the URL
+    function toggleLowLatencyParam(url) {
+        const urlObj = new URL(url);
+        const params = new URLSearchParams(urlObj.search);
+        if (params.has('playlistType')) {
+            params.delete('playlistType');
+        } else {
+            params.set('playlistType', 'lowLatency');
+        }
+        urlObj.search = params.toString();
+        return urlObj.toString();
+    }
+
+    // Function to reload the video with the new source
+    function reloadVideo(source) {
+        video.src = source; // Set the new source
+        video.load(); // Reload the video
+        video.addEventListener('loadeddata', () => {
+            video.play(); // Play the video after it's loaded
+        });
+        // Trigger click event on the "Add" button
+        addButton.click();
+    }
+});
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Hide the buffer shower when the page loads
@@ -188,6 +281,9 @@ document.body.addEventListener('click', (event) => {
 </script>
 
     <script>
+      
+      
+      
         document.addEventListener('DOMContentLoaded', () => {
     const video = document.getElementById('player');
     const videoContainer = document.getElementById('lazy');
