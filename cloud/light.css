@@ -1,28 +1,29 @@
 /* Base Styles */
 :root {
-  --invisible: rgba(0,0,0,0);
-   --theme-2-c: rgba(155, 75, 250, .2);
    --theme-4-c: rgba(155, 75, 250, .4);
    --theme-8-c: rgba(200, 175, 250, 0.8);
    --theme-full-c: rgba(155, 75, 250, 1);
+   --container-color: #c9b3e5;
+   --bg-color: #e5dfec;
    --white: #fff;
    --white-88: #e0e0e0;
    --grey-20: #333;
    --grey-27: #444;
    --grey-05: rgba(255, 255, 255, .5);
-   --container-color: #221a2e;
    --black: rgba(0,0,0,1);
    --black-05: rgba(0,0,0,.5);
-   --input-t-c: #9582b0;
-   --input-t-bc: #31273f;
-   --nav-menu: #0b001a;
-   --quality-select: #31273f;
+   --input-t-c: #e4dbf0;
+   --btn-hover: #8542d7;
+   --saved-btn: #8753c6;
+   --btn-play: #a06ce0;
+   --btn-play-hover: #3e3050;
+   --quality-select: #e4dbf0;
+   --nav-menu: #cabfd9;
         }
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #181320; /* Dark background for the entire page */
-    color: var(--white-88); /* Light text color for contrast */
+    background-color: var(--bg-color); /* Light background for the entire page */
+    color: var(--grey-20); /* Dark text color for contrast */
     margin: 0;
     padding: 0;
     display: flex;
@@ -31,77 +32,15 @@ body {
     height: 100vh;
 }
 
-::selection{
-  color: var(--white-88);
-  background-color: var(--theme-2-c);
-}
-
-.benefits-header::selection{
-  color: var(--theme-full-c);
-  background-color: var(--theme-2-c);
-}
-
-input[type="text"]::selection{
-  color: var(--black);
-  background-color: var(--white-88);
-}
 .container {
-    background-color: var(--container-color);
+    background-color: var(--container-color); /* Light background for the container */
     border-radius: 10px;
     padding: 20px;
     max-width: 90%;
     width: 600px;
-    box-shadow: 0 4px 10px var(--black-05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     box-sizing: border-box;
-}
-
-.input-container {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-input[type="text"] {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 5px 0 0 5px; /* Rounded left corners */
-    background-color: var(--input-t-bc);
-    color: var(--input-t-c);
-    font-size: 16px;
-    height: 40px; /* Consistent height */
-    box-sizing: border-box; /* Include padding in width calculation */
-}
-
-.play-the-hls {
-    width: auto; /* Let the button size naturally */
-    padding: 0 15px; /* Add padding instead of width for better fit */
-    background-color: var(--theme-full-c);
-    border: none;
-    border-radius: 0 5px 5px 0;/* Rounded right corners */
-    color: var(--white);
-    /* Rounded right corners */
-    cursor: pointer;
-    font-size: 16px;
-    height: 40px; /* Same height as input field */
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center text horizontally */
-    /* Moves the element 50px right and 20px down */
-    box-shadow: 0px 0px 5px 1px var(--theme-2-c); /* Shadow with all parameters set to 1px */
-    transform: translateY(-5px);
-    transition: background-color 0.3s ease;
-    box-sizing: border-box; /* Include padding in width calculation */
-}
-
-.play-the-hls:hover {
-    background-color: var(--theme-4-c);
-    box-shadow: none; /* Shadow with all parameters set to 1px */
 }
 
 h1 {
@@ -119,10 +58,20 @@ label {
     font-size: 16px;
 }
 
+input[type="text"] {
+    width: calc(100% - 22px); /* Full width minus padding */
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--input-t-c);
+    color: var(--grey-20);
+    font-size: 16px;
+}
+
 button {
     background-color: var(--theme-full-c);
     border: none;
-    color: var(--white-88);
+    color: var(--white);
     padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -132,11 +81,11 @@ button {
 }
 
 button:hover {
-    background-color: var(--theme-4-c);
+    background-color: var(--btn-hover);
 }
 
 #player-container {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 video {
@@ -154,14 +103,14 @@ video {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: var(--black-05);
+    background-color: var(--grey-05);
     backdrop-filter: blur(5px);
 }
 
 /* List Items */
 .saved-stream {
     padding: 10px;
-    border-bottom: 1px solid var(--grey-27);
+    border-bottom: 1px solid #ddd;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -176,14 +125,14 @@ video {
 
 /* Modal Content */
 .modal-content {
-    background-color: var(--grey-20);
+    background-color: var(--white);
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid var(--grey-27);
+    border: 1px solid #ddd;
     border-radius: 8px;
     width: 80%;
     max-width: 500px;
-    color: var(--white-88);
+    color: var(--grey-20);
     text-align: center;
     overflow: hidden; /* Ensure no content overflow */
 }
@@ -193,6 +142,12 @@ video {
     max-height: 400px; /* Adjust height as needed */
     overflow-y: auto; /* Adds vertical scrollbar if needed */
     margin-top: 20px;
+}
+
+
+#savedButton {
+    color: var(--grey-05);
+    background-color: var(--saved-btn);
 }
 
 /* Delete Button */
@@ -210,9 +165,24 @@ video {
     background-color: #a00;
 }
 
+/* Play Button */
+.play-button {
+    background-color: var(--btn-play);
+    border: none;
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.play-button:hover {
+    background-color: var(--btn-play-hover);
+}
+
 /* Close Button */
 .close {
-    color: #bbb;
+    color: var(--grey-20);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -220,16 +190,16 @@ video {
 
 .close:hover,
 .close:focus {
-    color: var(--white);
+    color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
 /* Confirmation Buttons */
 #confirmationModal button {
-    background-color: var(--grey-27);
+    background-color: #ddd;
     border: none;
-    color: var(--white);
+    color: var(--grey-20);
     padding: 10px;
     margin: 10px;
     border-radius: 5px;
@@ -254,10 +224,10 @@ video {
 /* Quality Dropdown Styling */
 #quality-select {
     padding: 8px;
-    border: 1px solid var(--invisible);
+    border: 1px solid #ddd;
     border-radius: 8px;
     background-color: var(--quality-select);
-    color: var(--grey-05);
+    color: var(--grey-20);
     font-size: 16px;
     font-family: Rubik, sans-serif;
     font-weight: 500;
@@ -268,16 +238,16 @@ video {
 }
 
 #quality-select:focus {
-    border: 1px solid var(--theme-8-c);
+    border-color: #6200ea;
 }
 
 /* Dropdown styling */
 select {
     padding: 10px;
-    border: 1px solid var(--grey-20);
+    border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #2e2e2e;
-    color: var(--white-88);
+    background-color: #f5f5f5;
+    color: var(--grey-20);
     font-size: 16px;
     outline: none;
     appearance: none; /* Removes default dropdown arrow */
@@ -305,14 +275,14 @@ select::after {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--white-88);
+    color: #333;
     pointer-events: none; /* Allows click events to pass through */
 }
 
 /* Dropdown hover and focus */
 select:hover, select:focus {
     border-color: #007bff;
-    background-color: #1e1e1e;
+    background-color: var(--white-88);
 }
 
 /* Hide dropdown arrow for select element on focus (for a cleaner look) */
@@ -326,27 +296,22 @@ select:focus::after {
     max-width: 400px; /* Set a maximum width */
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid var(--grey-20);
+    border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #2e2e2e;
-    color: #e0e0e0;
+    background-color: #f5f5f5;
+    color: var(--grey-20);
     font-size: 16px;
     outline: none;
     transition: border-color 0.3s;
 }
 
 #searchInput:focus {
-    border-color: var(--theme-4-c);
+    border-color: #6200ea;
 }
 
 /* Ensure content is centered within the modal */
 #savedStreamsList {
     width: 100%;
-}
-
-#savedButton {
-    color: var(--grey-05);
-    background-color: var(--theme-2-c);
 }
 
 /* Basic styling for the cookie consent banner */
@@ -355,8 +320,8 @@ select:focus::after {
     bottom: -150px; /* Start position deeper off-screen */
     left: 0;
     right: 0;
-    background: var(--grey-20);
-    color: var,(--white);
+    background: var(--white);
+    color: var(--grey-20);
     padding: 20px;
     text-align: center;
     display: flex;
@@ -407,7 +372,7 @@ select:focus::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--black-05); /* Semi-transparent black background */
+    background: var(--grey-05); /* Semi-transparent black background */
     backdrop-filter: blur(5px);
     display: none; /* Hidden by default */
     z-index: 1000; /* Ensure the overlay is below the cookie consent banner */
@@ -430,7 +395,7 @@ select:focus::after {
 
 /* Styling for the link */
 .cookie-consent a {
-    color: var(--theme-full-c); /* Link color */
+    color: #6200ea; /* Link color */
     text-decoration: underline;
 }
 
@@ -446,7 +411,7 @@ select:focus::after {
 
 /* Styling for the Accept button */
 .cookie-consent #accept-cookies {
-    background: var(--theme-full-c); /* Button background color */
+    background: #6200ea; /* Button background color */
     border: none;
     color: var(--white);
     padding: 12px 25px;
@@ -457,7 +422,7 @@ select:focus::after {
 }
 
 .cookie-consent #accept-cookies:hover {
-    background: var(--theme-2-c); /* Darker shade on hover */
+    background: #3700b3; /* Darker shade on hover */
 }
 
 /* Styling for the Decline button */
@@ -501,7 +466,6 @@ select:focus::after {
         font-size: 14px; /* Smaller font size for button */
     }
 }
-
         .benefits-container {
             padding: 0px 20px 50px 20px;
             border-radius: 8px;
@@ -509,7 +473,7 @@ select:focus::after {
             margin: 0 auto;
         }
         .benefits-header {
-            color: var(--white);
+            color: var(--theme-full-c);
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 15px;
@@ -531,7 +495,7 @@ select:focus::after {
         .custom-benefit-box {
             color: var(--theme-full-c);
             border: 1px solid var(--theme-4-c);
-            text-shadow: 1px 1px 0px black;
+            text-shadow: 1px 1px 0px var(--black);
             border-radius: 8px;
             padding: 20px;
             margin: 16px;
@@ -553,6 +517,18 @@ select:focus::after {
             width: 100%;
             margin: 5px 0 15px 0;
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Overlay Styles */
@@ -614,16 +590,6 @@ select:focus::after {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Initially hide all icons */
-.bi-house-door,
-.bi-file-earmark-person,
-.bi-bag,
-.bi-person-lines-fill {
-    display: none;
-}
-
-
-/* Navigation Menu */
 .nav-menu {
     position: fixed;
     top: 0;
@@ -633,60 +599,29 @@ select:focus::after {
     background-color: var(--nav-menu); /* Darker background for the menu */
     padding-top: 60px;
     transition: left 0.3s ease;
-    z-index: 1000; /* Ensure the menu appears above other content */
 }
 
-/* Navigation List */
 .nav-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-/* Navigation Item */
 .nav-item {
     margin: 20px 0;
 }
 
-.nav-item.active a {
-  border-left: 5px solid var(--theme-8-c);
-    font-weight: 800; /* Optional: Make the active item bold */
-}
-.nav-item.active a:hover {
-  border-left: 5px solid var(--theme-8-c);
-    background-color: rgba(0,0,0,0);
-}
-
 .nav-item a {
-    display: flex; /* Flexbox for aligning icon and text */
-    align-items: center; /* Center icon and text vertically */
-    color: var(--theme-8-c);
+    color: #3e3050;
     text-decoration: none;
     padding: 15px 20px;
+    display: block;
     transition: background-color 0.3s ease;
 }
 
-/* Icon inside Navigation Item */
-.nav-item i {
-    margin-right: 10px; /* Space between icon and text */
-    font-size: 20px; /* Adjust icon size if needed */
-}
-
-/* Show the icon when the nav-item is active */
-.nav-item a.active i {
-    display: block; /* Show the icon for the active item */
-    font-weight: bold; /* Optionally make the text bold */
-}
-
-/* Link Hover Effect */
 .nav-item a:hover {
-    border-left: 5px solid var(--theme-8-c);
-    background-color: var(--theme-4-c); /* Slightly lighter color on hover */
-}
-
-/* Ensure that text and icon are properly aligned */
-.nav-item a, .nav-item i {
-    white-space: nowrap; /* Prevent text wrapping */
+    border-left: 5px solid #7b609f;
+    background-color: #b09fc6; /* Slightly lighter color on hover */
 }
 
 /* Active menu state */
@@ -699,64 +634,3 @@ select:focus::after {
     opacity: 1;
     pointer-events: auto; /* Allow clicks to close the menu */
 }
-
-
-
-
-
-.fullscreen-btn {
-            background-color: var(--button-bg-color);
-            color: var(--button-text-color);
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        .fullscreen-btn:hover {
-            background-color: var(--button-hover-bg-color);
-        }
-
-        .fullscreen-btn:focus {
-            outline: none;
-        }
-
-.ads-block {
-  z-index: 2000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-.ads-block ads {
-  box-shadow: 0px 0px 15px 1px var(--black-05);
-  border-radius: 2px;
-  width: 720px;
-  height: 150px;
-  background-position: center;
-  background-size: cover;
-  
-  margin: 8px;
-}
-
-/* JuicyAds Ad Container */
-        .juicy-ads-container {
-            width: 160px; /* Set the container width to match or be slightly larger than the ad width */
-            margin: 20px auto; /* Center the ad horizontally with some vertical margin */
-            padding: 10px; /* Add some padding around the ad for spacing */
-            border: 2px solid #ddd; /* Add a light border */
-            background-color: #f9f9f9; /* Light background color */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-            text-align: center; /* Center the ad content inside the container */
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 480px) {
-            .juicy-ads-container {
-                width: 100%; /* Make the container full-width on small screens */
-                padding: 5px; /* Reduce padding for smaller screens */
-            }
-        }
