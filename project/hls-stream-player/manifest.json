@@ -1,0 +1,17 @@
+{
+  "name": "HLS Stream Player",
+  "short_name": "HLS Player",
+  "icons": [
+    {
+      "src": "https://www.svgrepo.com/show/492620/video-travel-image.svg",  // Replace with the actual path to your icon
+      "sizes": "192x192",  // Replace with the actual size of your icon
+      "type": "image/svg"  // Replace with the correct MIME type of your icon
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#007bff",
+  "description": "Simple interface for hls stream playing.",
+  "orientation": "portrait"
+}

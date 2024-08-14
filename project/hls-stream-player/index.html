@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HLS Stream Player</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/plyr@3/dist/plyr.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/style.css">
+    <!-- Link to manifest.json -->
+    <link rel="icon" href="https://www.svgrepo.com/show/492620/video-travel-image.svg">
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <!-- Settings Icon -->
+    <div class="settings-icon" onclick="openModal()">
+        <i class="bi bi-gear"></i>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Settings</h2>
+            <div class="toggle-container">
+                <label class="switch">
+                    <input type="checkbox" id="auto-mute-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span>Auto-Mute</span>
+            </div>
+            <div class="toggle-container">
+                <label class="switch">
+                    <input type="checkbox" id="toggle-feature">
+                    <span class="slider round"></span>
+                </label>
+                <span>Load From Previous URL</span>
+            </div>
+            <div class="toggle-container">
+                <label class="switch">
+                    <input type="checkbox" id="auto-refresh-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span>Auto-Skip</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>HLS Stream Player</h1>
+        <div id="time-container">
+            <div id="reset-time" class="reset-icon">
+                <i class="bi bi-arrow-clockwise"></i>
+            </div>
+            <div id="usage-time">
+                Time Elapsed: 00:00:00
+            </div>
+        </div>
+
+<div class="br12">
+    <div class="plyr__video-wrapper">
+        <video id="hls-video" controls crossorigin playsinline>
+            Your browser does not support the video tag.
+        </video>
+        <!-- Quality icon container -->
+        <div id="quality-icon" style="display: none;">
+            <i class="bi bi-badge-sd-fill" id="quality-badge"></i>
+        </div>
+    </div>
+</div>
+
+        <div class="controls">
+            <input type="text" id="stream-url" placeholder="Enter HLS stream URL">
+            <button id="play-button" style="display: none;">Play</button>
+            <button id="load-stream">Load Stream</button>
+            <div id="feedback-box" class="notification">
+                <div class="notification-content" id="notification-message"></div>
+            </div>
+            <select id="quality-select" style="display: none;">
+                <!-- Quality options will be populated dynamically -->
+            </select>
+        </div>
+        <a href="/benefits.html">
+            <div class="styled-text">Benefits</div>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plyr@3/dist/plyr.polyfilled.js"></script>
+    <script src="/d1etGImjkO.js"></script>
+    <script src="/YpPXctGEBU.js"></script>
+    <script src="/0cnC1mfpnJ.js"></script>
+    <script src="/0RdI0NXgal.js"></script>
+    <script src="/B9hM1f0LWX.js"></script>
+    <script src="/wk7wpWXig8.js"></script>
+    <script src="/TpzYMY2mUZ.js"></script>
+    <script src="/TYBa2MZHsC.js"></script>
+</body>
+</html>
