@@ -1,0 +1,5 @@
+[
+  { "name": "Natalia", "url": "https://example.com/natalia.m3u8" },
+  { "name": "ki_mi", "url": "https://edge12-sin.live.mmcdn.com/live-hls/amlst:ki_mi-sd-79c8cce2ca64624efa63dcf4ea6a55b8a486e37883cf4fbcfd0f00a4092dea85_trns_h264/playlist.m3u8" },
+  { "name": "Sophie", "url": "https://example.com/sophie.m3u8" }
+]
