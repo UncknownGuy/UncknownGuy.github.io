@@ -1,0 +1,259 @@
+/* Basic styling for the gallery */
+body {
+  background-color: #f7f7f7;  /* Light background color */
+  margin: 0;                  /* Remove default margin */
+  padding: 0;                 /* Remove default padding */
+  font-family: Arial, sans-serif;  /* Optional: Set a clean font */
+  line-height: 1.5;           /* Optional: Improve line height for readability */
+}
+body.dark {
+  background-color: rgba(0,0,0,.9);
+}
+
+.bg-purple {
+  background-color: rgba(0,0,0,1);
+}
+body.dark .bg-purple {
+  background-color: rgba(255,255,255,.5);
+}
+.progress {
+  background-color: rgba(0,0,0,0);
+}
+
+.gallery-wrapper {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.gallery-container {
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+}
+
+.image-display img {
+  border: none;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: none; /* Hide all images initially */
+}
+
+body.dark .image-display img{
+  box-shadow:0 0 2px rgba(0,0,0,.5); /* White box shadow with 5px blur */
+  outline: 1px solid rgba(255,255,255,.1);
+}
+.image-display img{
+  box-shadow:0 0 2px rgba(0,0,0,.5); /* White box shadow with 5px blur */
+  outline: none;
+}
+
+.image-indicators {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.indicator {
+  display: inline-block;
+  height: 5px;
+  width: 15px;
+  background-color: rgba(0,0,0,.1);
+  margin: 0 5px;
+  border-radius: 10px;
+  transition: background-color 0.4s ease, width 0.6s ease;
+}
+body.dark .indicator{
+  background-color: rgba(255,255,255,.1);
+}
+
+.indicator.active {
+  background-color: rgba(0,0,0,1);
+  width: 80px; /* Enlarge the active indicator */
+}
+body.dark .indicator.active {
+  background-color: rgba(255,255,255,1);
+  width: 80px;/* Enlarge the active indicator */
+}
+
+.text-container {
+  text-align: left;
+  padding: 8px;
+  margin-bottom: 45px;
+  max-width: 600px;  /* Limit the width for readability */
+  width: 100%;
+}
+
+body.dark .text-content{
+  color: rgba(255,255,255,.5);
+}
+.text-content {
+  margin: 0;
+  padding: 8px;
+  font-size: 15px;
+  color: #333;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* When the element becomes visible, these styles will apply */
+.text-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.clickable-text {
+  font-weight: 800;
+  color: #007bff; /* Link color */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Make it look clickable */
+  padding: 0 2px; /* Optional: Add spacing */
+  transition: color 0.3s ease;
+}
+
+body.dark .clickable-text:hover {
+  font-weight: 600;
+  color: rgba(255,255,255,.2); /* Darker color on hover */
+  text-decoration: underline; /* Optional: Add underline on hover */
+}
+.clickable-text:hover {
+  font-weight: 600;
+  color: rgba(0,0,0,.2); /* Darker color on hover */
+  text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Initially invisible */
+  visibility: hidden; /* Make sure it's hidden initially */
+  pointer-events: none; /* Prevent interaction before animation starts */
+  display: flex; /* Use flexbox to center the content */
+  justify-content: center; /* Horizontally center */
+  align-items: flex-start; /* Align content to the top */
+  padding-top: 10%; /* Adjust space from the top */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade-in */
+}
+
+/* Overlay background */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,.5); /* Dark background */
+  backdrop-filter: blur(5px);
+  opacity: 0; /* Initially invisible */
+  transition: opacity 0.3s ease; /* Fade-in effect for overlay */
+}
+
+body.dark .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content */
+.modal-content {
+  color: rgba(0, 0, 0, 0.5);
+  width: auto;
+  max-width: 320px;
+  padding: 15px 20px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.1);
+  outline: 2px solid #007bff;
+  text-align: center;
+  animation: SlideDownContent 1s ease forwards;
+  font-size: 16px;
+}
+
+body.dark .modal-content{
+  color: rgba(255,255,255,.8);
+  background: rgba(0,0,0,.5);
+  outline: 2px solid #007bff;
+}
+
+/* Slide down effect for the modal content 
+@keyframes SlideDownContent {
+  0% {
+    /*transform: translateY(-150%); /* Start from above the screen */
+   /* transform: scale(.90);
+ /* }
+/*  100% {
+ /*   transform: translateY(0%); /* End at the center of the screen */
+/*    transform: scale(.95);
+/*  }
+} */
+
+#countdown-timer {
+  font-weight: bold;
+  color: #007bff;
+}
+
+
+
+/* Fade Out Animation */
+.fade-out-text {
+  color: red;
+  opacity: 1; /* Initially visible */
+  transform: translateY(0); /* Initially at normal position */
+  transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+}
+
+/* Fade Out when the element leaves the viewport (after visible class is removed) */
+.fade-out-text.hidden {
+  opacity: 0; /* Fade-out */
+  transform: translateY(80px); /* Slide down */
+  transform: scale(.90);
+}
+
+body.dark .half-color-bg {
+  background-color: rgba(255,255,255,.1);
+}
+.half-color-bg {
+  background-color: rgba(0,0,0,.1);
+}
+
+
+
+
+
+
+
+
+
+
+.logo-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 120px; /* Adjust the height of the logo container */
+}
+
+.logo-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: max-content; /* Ensures the wrapper width is wide enough to hold all logos */
+  animation: scroll-logos 20s linear infinite; /* Set the animation for infinite scroll */
+}
+
+.logo-wrapper img {
+  height: 100px; /* Adjust logo height */
+  margin-right: 50px; /* Space between logos */
+}
+
+/* Keyframes for smooth left to right scrolling */
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0); /* Start from the left */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left fully */
+  }
+}
