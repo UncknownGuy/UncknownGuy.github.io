@@ -1,0 +1,210 @@
+/* Video container that holds the video and seek bar */
+.video-container {
+  position: relative;
+  width: 90%;
+  left: 5%;
+}
+
+.video-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 0 25px 0;
+  opacity: 0;
+  transform: translateX(-100%); /* Start off-screen */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth fade and slide transition */
+}
+
+#resolutionDisplay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 3px;
+  z-index: 9999;  /* Ensure it appears above other content */
+}
+
+
+
+/* Add a class to make it slide in and fade */
+.video-wrapper.visible {
+  opacity: 1;  /* Fade in */
+  transform: translateX(0);  /* Slide in from the left */
+}
+
+/* Video element styling */
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 1; /* Ensure video is behind the overlay */
+}
+
+/* Define the fade-out animation */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.video-placeholder {
+  width: 100%;
+  border-radius: 8px;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0,0,0,1);
+  opacity: 1; /* Ensure it's visible initially */
+  transition: opacity 1s ease-out; /* Smooth fade transition */
+
+}
+
+/* Border radius for all */
+.video-container, .seek-overlay, #videoPlayer{
+  border-radius: 8px;
+}
+
+/* Seek Bar */
+.seek-bar {
+  position: absolute;
+  bottom: 0; /* Position at the bottom of the video */
+  left: 2%;
+  margin: 0 0 8px 0;
+  border-radius: 8px;
+  width: 95%;
+  height: 2px;
+  background-color: rgba(255,255,255,.1);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+  display: flex;
+  z-index: 1; /* Ensure seek bar is above the video */
+  flex-direction: row-reverse; /* Ensure seek progress starts from left */
+}
+
+
+/* Seek input */
+#seek {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  opacity: 0;
+  position: absolute;
+}
+
+/* Seek Progress Bar */
+body.dark .seek-progress {
+  height: 100%;
+  border-radius: 8px;
+  margin: 0 0 8px 0;
+  background-color: rgba(255,255,255,1);
+  z-index: 3;
+  position: absolute;
+  left: 0;
+}
+
+.seek-progress {
+  height: 100%;
+  border-radius: 8px;
+  margin: 0 0 8px 0;
+  background-color: rgba(255,255,255,.5);
+  z-index: 3;
+  position: absolute;
+  left: 0;
+}
+
+/* Smooth fade transition for overlay */
+body.dark .seek-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0,0.1); /* Semi-transparent overlay */
+  backdrop-filter: blur(8px);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+  z-index: 1; /* Ensure overlay is above video */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seek-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,.1);
+  backdrop-filter: blur(8px);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+  z-index: 1; /* Ensure overlay is above video */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.dark #playPauseBtn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,1);
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#playPauseBtn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.5);
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Add a class for the animation */
+.pop-animation {
+  animation: Pop 0.3s ease-out;
+}
+
+body.dark @keyframes Pop {
+  0% {
+    transform: scale(1);
+    color: rgba(255,255,255,1);
+  }
+  50% {
+    transform: scale(1.15);
+    color: rgba(255,255,255,.1);
+  }
+  100% {
+    transform: scale(1);
+    color: rgba(255,255,255,1);
+  }
+}
+@keyframes Pop {
+  0% {
+    transform: scale(1);
+    color: rgba(255,255,255,.5);
+  }
+  50% {
+    transform: scale(1.15);
+    color: rgba(255,255,255,.1);
+  }
+  100% {
+    transform: scale(1);
+    color: rgba(255,255,255,.5);
+  }
+}
+
+
+/* Show seek point when hovered */
+.seek-bar:hover .seek-point {
+  opacity: 1; /* Show the seek point when hovering over the seek bar */
+}
