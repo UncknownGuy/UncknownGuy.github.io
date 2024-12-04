@@ -1,0 +1,23 @@
+{
+  "name": "Uncknownguy",
+  "short_name": "Uncknownguy Website",
+  "description": "UncknowGuy Project Page.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#00060a", 
+  "theme_color": "#0099ff",  // Set the toolbar color
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "https://uncknownguy.github.io/cloud/hosted/mainPage/anonymity128x.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "https://uncknownguy.github.io/cloud/hosted/mainPage/anonymity512x.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
