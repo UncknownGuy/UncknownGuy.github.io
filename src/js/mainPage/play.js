@@ -20,7 +20,7 @@ async function loadStream() {
 
   // Check if we have streams left to try
   if (currentStreamIndex >= streams.length) {
-    alert('No available streams found.');
+    alert('Currently No Available Camshows.');
     return;
   }
 
@@ -32,7 +32,6 @@ async function loadStream() {
       if (response.ok) {
         // Stream is available, proceed to play
         console.log(`${stream.name} is online!`);
-        alert(`${stream.name} is online!`);
         playStream(stream.url, stream.name);
       } else {
         // If the stream is not available, move to the next one
