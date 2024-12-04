@@ -1,6 +1,6 @@
 // Function to get stream list from an online JSON file
 async function getStreams() {
-  const url = 'https://uncknownguy.github.io/cloud/hosted/shows.json';  // Replace with your actual GitHub URL
+  const url = 'https://raw.githubusercontent.com/UncknownGuy/UncknownGuy.github.io/refs/heads/main/cloud/hosted/shows.json';  // Replace with your actual GitHub URL
 
   try {
     const response = await fetch(url);
