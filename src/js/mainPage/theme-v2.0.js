@@ -1,10 +1,3 @@
-// Theme Changing Script v2.0
-
-// Change Log
-// V2.0 > 
-      // Reveal elements one by one
-      // opcaity use for reveal to keep it's smoothness
-      
 document.addEventListener('DOMContentLoaded', function () {
   // Function to apply dark theme
   function applyDarkTheme() {
@@ -52,7 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const elements = document.body.querySelectorAll('*');
 
     // List of selectors for elements we want to exclude from being transitioned
-    const excludedSelectors = ['#countdown-modal', '.modal', '.overlay', '.modal-content'];
+    const excludedSelectors = [
+'#navbarNav','#countdown-modal', '.modal', '.overlay', '.modal-content','caution','.video-placeholder','#videoPlayer', '.video-player','.seek-overlay', '#playPauseBtn','#playPauseIcon', '.seek-bar','loading-dots','#blackO', '#seek','.seek-progress', '.seek-point','caution-wrapper','.seek-bar-overlay','.video-overlay'
+    ];
 
     // Initially hide all elements except excluded ones
     elements.forEach((el) => {
@@ -70,19 +65,29 @@ document.addEventListener('DOMContentLoaded', function () {
       applyLightTheme(); // Switch to light theme
     }
 
+    // Total duration of the animation (in ms)
+    const totalAnimationTime = 2500; // Adjust this value for total animation time
+
+    // Number of elements to reveal
+    const revealableElements = Array.from(elements).filter(el => 
+      !excludedSelectors.some(selector => el.matches(selector))
+    );
+    
+    // Calculate delay per element based on total animation time
+    const delayIncrement = totalAnimationTime / revealableElements.length;
+
     // Staggered reveal for elements after theme change
     let delay = 0;
 
     // Loop through each element and reveal it one by one, excluding modal and backend-related content
-    elements.forEach((el) => {
-      if (!excludedSelectors.some(selector => el.matches(selector))) {
-        setTimeout(() => {
-          // Reveal the element without shifting the layout
-          el.style.visibility = 'visible';  // Make the element visible
-          el.style.opacity = '1';  // Fade the element in smoothly
-        }, delay);
-        delay += 50; // Staggered delay for each element (100ms)
-      }
+    revealableElements.forEach((el) => {
+      setTimeout(() => {
+        // Reveal the element without shifting the layout
+        el.style.visibility = 'visible';  // Make the element visible
+        el.style.opacity = '1';  // Fade the element in smoothly
+      }, delay);
+
+      delay += delayIncrement; // Increment delay for each element
     });
   });
 });
