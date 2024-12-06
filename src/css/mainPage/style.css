@@ -8,6 +8,7 @@ body {
 }
 body.dark {
   background-color: rgba(0,0,0,.9);
+  color: rgba(255,255,255,1);
 }
 
 .bg-purple {
@@ -18,6 +19,15 @@ body.dark .bg-purple {
 }
 .progress {
   background-color: rgba(0,0,0,0);
+}
+
+/* Custom background color for the navbar dark mode */
+.navbar.bg-dark {
+  background-color: rgba(0,0,0,.1) !important;
+}
+/* Custom background color for the navbar dark mode */
+.navbar{
+  font-family: Raleway;
 }
 
 .gallery-wrapper {
@@ -78,11 +88,11 @@ body.dark .indicator.active {
 }
 
 .text-container {
-  text-align: left;
   padding: 8px;
   margin-bottom: 45px;
   max-width: 600px;  /* Limit the width for readability */
   width: 100%;
+  word-wrap: break-word;
 }
 
 body.dark .text-content{
@@ -91,12 +101,88 @@ body.dark .text-content{
 .text-content {
   margin: 0;
   padding: 8px;
-  font-size: 15px;
+  font-size: 0.85em;
+  font-family: Inter;
   color: #333;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
+
+.text-content::selection {
+    background-color: rgba(0,123,255,1); /* Change background color */
+    color: rgba(255,255,255,1); /* Change text color */
+}
+
+.caution-wrapper {
+    padding: 16px; /* Padding around the .caution element */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    max-width: 800px; /* Limit max-width of the wrapper */
+}
+.caution {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 16:9 aspect ratio */
+    background-color: rgba(0, 0, 0, 0.1); /* Light red background */
+    color: rgba(0, 0, 0, 0.8); /* Dark red text */
+    outline: 1px solid rgba(0, 0, 0, 0.5); /* Light red border */
+    display: flex; /* Flexbox for centering text */
+    justify-content: center; /* Horizontally center text */
+    align-items: center; /* Vertically center text */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    font-size: 0.95rem; /* Text size */
+    text-align: center; /* Center the text */
+    font-family: Raleway;
+    position: relative;
+}
+body.dark .caution {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 16:9 aspect ratio */
+    background-color: rgba(255,255,255,.1); /* Light red background */
+    color: rgba(255,255,255,.5); /* Dark red text */
+    outline: 1px solid rgba(255,255,255,.1); /* Light red border */
+    display: flex; /* Flexbox for centering text */
+    justify-content: center; /* Horizontally center text */
+    align-items: center; /* Vertically center text */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    font-size: 0.95rem; /* Text size */
+    text-align: center; /* Center the text */
+    font-family: Raleway;
+    position: relative;
+}
+/* Animation for loading dots */
+        .loading-dots {
+            font-weight: bold;
+            display: inline-block;
+            position: relative;
+            margin-left: 5px;
+        }
+
+        .loading-dots::after {
+            content: '.';
+            display: inline;
+            animation: dot-anim 1.5s infinite steps(1);
+        }
+    
+  
+  @keyframes dot-anim {
+            0% {
+                content: '.';
+            }
+            33% {
+                content: '..';
+            }
+            66% {
+                content: '...';
+            }
+            100% {
+                content: '.';
+            }
+        }
+
 
 /* When the element becomes visible, these styles will apply */
 .text-content.visible {
@@ -105,6 +191,7 @@ body.dark .text-content{
 }
 
 .clickable-text {
+  font-family: inter;
   font-weight: 800;
   color: #007bff; /* Link color */
   text-decoration: none; /* Remove underline */
@@ -124,6 +211,23 @@ body.dark .clickable-text:hover {
   text-decoration: underline; /* Optional: Add underline on hover */
 }
 
+.primary-hl {
+    background-color: rgba(0,123,255,.1); /* Custom background color */
+    color: rgba(0,123,255,.8); /* Custom text color */
+    padding: 0.2em;
+    border-radius: 4px;
+    font-family: Inter;
+    font-weight: bold;
+  }
+  
+.primary-hl-level-2{
+  background-color: rgba(0,123,255,0); /* Custom background color */
+    outline: 1px solid rgba(0,123,255,.8);
+    color: rgba(0,123,255,.8); /* Custom text color */
+    padding: 0.2em;
+    border-radius: 4px;
+}
+
 /* Modal styling */
 .modal {
   position: fixed;
@@ -138,7 +242,7 @@ body.dark .clickable-text:hover {
   display: flex; /* Use flexbox to center the content */
   justify-content: center; /* Horizontally center */
   align-items: flex-start; /* Align content to the top */
-  padding-top: 10%; /* Adjust space from the top */
+  padding-top: 15%; /* Adjust space from the top */
   transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade-in */
 }
 
@@ -195,12 +299,8 @@ body.dark .modal-content{
   font-weight: bold;
   color: #007bff;
 }
-
-
-
 /* Fade Out Animation */
 .fade-out-text {
-  color: red;
   opacity: 1; /* Initially visible */
   transform: translateY(0); /* Initially at normal position */
   transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
@@ -256,4 +356,75 @@ body.dark .half-color-bg {
   100% {
     transform: translateX(-100%); /* Move to the left fully */
   }
+}
+
+
+
+
+
+
+
+
+
+
+/* Position the resolution dropdown at the top right */
+.resolution-selector {
+  position: absolute;
+  top: 10px; /* Position from the top */
+  right: 10px; /* Position from the right */
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+.resolution-dropdown {
+  font-family: Inter;
+  font-weight: bold;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px 15px; /* Adjust padding for a smaller width */
+  font-size: 0.875rem;
+  border-radius: 8px;
+  color: rgba(255,255,255,.5); /* White text color */
+  background-color: rgba(255,255,255,.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0,0,0,0);
+  outline: none; /* No outline */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  width: 4.6400em; /* Set a fixed width */
+}
+body.dark .resolution-dropdown {
+  font-family: Inter;
+  font-weight: bold;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 5px 15px; /* Adjust padding for a smaller width */
+  font-size: 0.875rem;
+  border-radius: 8px;
+  color: rgba(0,0,0,.3); /* White text color */
+  background-color: rgba(0,0,0,.1);
+  backdrop-filter: blur(1px);
+  border: 1px solid rgba(0,0,0,0);
+  outline: none; /* No outline */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  width: 4.6400em; /* Set a fixed width */
+}
+
+/* Option styling */
+.resolution-dropdown option {
+  background-color: transparent; /* No background for options */
+  color: #000; /* Black text for options */
+}
+
+/* Additional hover effect (optional) */
+body.dark .resolution-dropdown:hover {
+  background-color: rgba(0,0,0,.1); /* Subtle hover effect */
+  color: rgba(0,0,0,.3);
+}
+/* Additional hover effect (optional) */
+.resolution-dropdown:hover {
+  background-color: rgba(255,255,255,.1); /* Subtle hover effect */
+  color: rgba(255,255,255,.5);
 }
