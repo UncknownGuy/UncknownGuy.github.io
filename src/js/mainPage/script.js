@@ -91,6 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = modal.querySelector('.overlay');
   const modalContent = modal.querySelector('.modal-content');
 
+  // Function to disable scrolling
+  function disableScroll() {
+    document.body.style.overflow = 'hidden'; // Disable scrolling
+  }
+
+  // Function to enable scrolling
+  function enableScroll() {
+    document.body.style.overflow = ''; // Enable scrolling
+  }
+
   clickableTexts.forEach(span => {
     span.addEventListener('click', () => {
       const url = span.getAttribute('data-url');
@@ -103,8 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.style.opacity = '1'; // Fade in the modal (overlay)
         overlay.style.opacity = '1'; // Fade in the overlay
         modalContent.style.opacity = '1'; // Fade in the content
-        modalContent.style.transform = 'translateY(0)'; // Trigger slide down effect
-        
+
+        // Disable scrolling when modal is active
+        disableScroll();
+
         const interval = setInterval(() => {
           countdown--;
           countdownTimer.textContent = countdown;
@@ -115,11 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.opacity = '0'; // Fade out the modal (overlay)
             overlay.style.opacity = '0'; // Fade out the overlay
             modalContent.style.opacity = '0'; // Fade out the content
-            modalContent.style.transform = 'translateY(50px)'; // Slide out effect
-
             // After fading out, hide visibility to allow interaction again
             setTimeout(() => {
               modal.style.visibility = 'hidden'; // Hide modal
+              // Enable scrolling after modal is hidden
+              enableScroll();
             }, 300); // Wait for fade-out transition to complete
 
             window.location.href = url; // Redirect in the same tab
