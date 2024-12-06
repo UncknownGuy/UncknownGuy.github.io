@@ -6,7 +6,7 @@
 }
 
 .video-wrapper {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   margin: 25px 0 25px 0;
@@ -58,6 +58,16 @@ video {
   border-radius: 8px;
   height: 100%;
   position: absolute;
+  background-color: rgba(255,255,255,1);
+  opacity: 1; /* Ensure it's visible initially */
+  transition: opacity 1s ease-out; /* Smooth fade transition */
+
+}
+body.dark .video-placeholder {
+  width: 100%;
+  border-radius: 8px;
+  height: 100%;
+  position: absolute;
   background-color: rgba(0,0,0,1);
   opacity: 1; /* Ensure it's visible initially */
   transition: opacity 1s ease-out; /* Smooth fade transition */
@@ -86,7 +96,14 @@ video {
   flex-direction: row-reverse; /* Ensure seek progress starts from left */
 }
 
-
+/* Hide the seek bar on player in dark mode */
+body.dark .seek-bar{
+  visibility: hidden;
+}
+/* Hide the seek bar on player in default mode */
+.seek-bar{
+  visibility: hidden;
+}
 /* Seek input */
 #seek {
   width: 100%;
@@ -154,10 +171,13 @@ body.dark .seek-overlay {
 body.dark #playPauseBtn {
   background: none;
   border: none;
-  color: rgba(255,255,255,1);
+  color: rgba(0,0,0,.4);
   font-size: 3rem;
   cursor: pointer;
   z-index: 2;
+}
+body.dark #playPauseBtn:hover {
+  color: rgba(0,0,0,.2);
 }
 
 #playPauseBtn {
