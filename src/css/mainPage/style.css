@@ -402,7 +402,7 @@ body.dark .resolution-dropdown {
   padding: 5px 15px; /* Adjust padding for a smaller width */
   font-size: 0.875rem;
   border-radius: 8px;
-  color: rgba(0,0,0,.3); /* White text color */
+  color: rgba(255,255,255,.3); /* White text color */
   background-color: rgba(0,0,0,.1);
   backdrop-filter: blur(1px);
   border: 1px solid rgba(0,0,0,0);
@@ -421,7 +421,7 @@ body.dark .resolution-dropdown {
 /* Additional hover effect (optional) */
 body.dark .resolution-dropdown:hover {
   background-color: rgba(0,0,0,.1); /* Subtle hover effect */
-  color: rgba(0,0,0,.3);
+  color: rgba(255,255,255,.3);
 }
 /* Additional hover effect (optional) */
 .resolution-dropdown:hover {
