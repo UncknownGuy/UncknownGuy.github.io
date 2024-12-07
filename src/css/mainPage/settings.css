@@ -1,0 +1,28 @@
+
+.settings {
+  font-family: Inter;
+  margin-top: 30px;
+  gap: 1.5rem;            /* Space between the switches */
+  height: 100vh;          /* Full height for vertical centering */
+}
+
+.form-check {
+  display: flex;
+  align-items: center; /* Align the switch and label vertically */
+  justify-content: center; /* Center within the settings container */
+  gap: 1.5rem;         /* Space between the switch and label */
+  width: 100%;         /* Ensures uniform alignment */
+}
+
+.form-check-input {
+  width: 2rem;        /* Larger switch width */
+  height: 1rem;       /* Larger switch height */
+  transform: scale(1.5); /* Enlarge the switches */
+  margin-top: 0;      /* Remove default top margin for perfect alignment */
+}
+
+.form-check-label {
+  font-size: 1.25rem; /* Larger label font */
+  font-weight: 500;   /* Medium bold for readability */
+  line-height: 1.5;   /* Ensure consistent vertical alignment with the switch */
+}

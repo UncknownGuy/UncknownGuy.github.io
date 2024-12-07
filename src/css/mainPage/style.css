@@ -1,32 +1,36 @@
 /* Basic styling for the gallery */
-body {
+body[data-bs-theme="light"] {
   background-color: #f7f7f7;  /* Light background color */
+  color: #000;                /* Light theme text color */
   margin: 0;                  /* Remove default margin */
   padding: 0;                 /* Remove default padding */
   font-family: Arial, sans-serif;  /* Optional: Set a clean font */
   line-height: 1.5;           /* Optional: Improve line height for readability */
 }
-body.dark {
-  background-color: rgba(0,0,0,.9);
-  color: rgba(255,255,255,1);
+
+body[data-bs-theme="dark"] {
+  background-color: rgba(0, 0, 0, .9); /* Dark background color */
+  color: rgba(255, 255, 255, 1);        /* Dark theme text color */
 }
 
+/* Background color for purple section (specific to dark mode) */
 .bg-purple {
-  background-color: rgba(0,0,0,1);
+  background-color: rgba(0, 0, 0, 1);
 }
-body.dark .bg-purple {
-  background-color: rgba(255,255,255,.5);
-}
-.progress {
-  background-color: rgba(0,0,0,0);
+body[data-bs-theme="dark"] .bg-purple {
+  background-color: rgba(255, 255, 255, .5); /* Dark theme purple background */
 }
 
-/* Custom background color for the navbar dark mode */
-.navbar.bg-dark {
-  background-color: rgba(0,0,0,.1) !important;
+.progress {
+  background-color: rgba(0, 0, 0, 0); /* Transparent background */
 }
-/* Custom background color for the navbar dark mode */
-.navbar{
+
+/* Custom background color for the navbar */
+.navbar.bg-dark {
+  background-color: rgba(0, 0, 0, .1) !important; /* Light navbar in dark theme */
+}
+
+.navbar {
   font-family: Raleway;
 }
 
@@ -50,12 +54,13 @@ body.dark .bg-purple {
   display: none; /* Hide all images initially */
 }
 
-body.dark .image-display img{
-  box-shadow:0 0 2px rgba(0,0,0,.5); /* White box shadow with 5px blur */
-  outline: 1px solid rgba(255,255,255,.1);
+body[data-bs-theme="dark"] .image-display img {
+  box-shadow: 0 0 2px rgba(255, 255, 255, .5); /* White box shadow for dark theme */
+  outline: 1px solid rgba(255, 255, 255, .1);
 }
-.image-display img{
-  box-shadow:0 0 2px rgba(0,0,0,.5); /* White box shadow with 5px blur */
+
+.image-display img {
+  box-shadow: 0 0 2px rgba(0, 0, 0, .5); /* White box shadow for light theme */
   outline: none;
 }
 
@@ -69,22 +74,24 @@ body.dark .image-display img{
   display: inline-block;
   height: 5px;
   width: 15px;
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, .1);
   margin: 0 5px;
   border-radius: 10px;
   transition: background-color 0.4s ease, width 0.6s ease;
 }
-body.dark .indicator{
-  background-color: rgba(255,255,255,.1);
+
+body[data-bs-theme="dark"] .indicator {
+  background-color: rgba(255, 255, 255, .1); /* Dark theme indicator color */
 }
 
 .indicator.active {
-  background-color: rgba(0,0,0,1);
+  background-color: rgba(0, 0, 0, 1); /* Active indicator color in light theme */
   width: 80px; /* Enlarge the active indicator */
 }
-body.dark .indicator.active {
-  background-color: rgba(255,255,255,1);
-  width: 80px;/* Enlarge the active indicator */
+
+body[data-bs-theme="dark"] .indicator.active {
+  background-color: rgba(255, 255, 255, 1); /* Active indicator color in dark theme */
+  width: 80px; /* Enlarge the active indicator */
 }
 
 .text-container {
@@ -95,140 +102,147 @@ body.dark .indicator.active {
   word-wrap: break-word;
 }
 
-body.dark .text-content{
-  color: rgba(255,255,255,.5);
+body[data-bs-theme="dark"] .text-content {
+  color: rgba(255, 255, 255, .5); /* Lighter text in dark mode */
 }
+
+/* .text-content styles */
 .text-content {
   margin: 0;
   padding: 8px;
   font-size: 0.85em;
   font-family: Inter;
-  color: #333;
+  color: #333; /* Default text color for light theme */
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
+/* .text-content selection */
 .text-content::selection {
-    background-color: rgba(0,123,255,1); /* Change background color */
-    color: rgba(255,255,255,1); /* Change text color */
+  background-color: rgba(0, 123, 255, 1); /* Change background color */
+  color: rgba(255, 255, 255, 1); /* Change text color */
 }
 
+/* Dark theme specific styling for .text-content */
+body[data-bs-theme="dark"] .text-content {
+  color: rgba(255, 255, 255, 0.5); /* Lighter text color for dark theme */
+}
+
+/* .caution-wrapper styling */
 .caution-wrapper {
-    padding: 16px; /* Padding around the .caution element */
-    display: flex; /* Flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    max-width: 800px; /* Limit max-width of the wrapper */
+  padding: 16px; /* Padding around the .caution element */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  max-width: 800px; /* Limit max-width of the wrapper */
 }
+
+/* .caution element styling */
 .caution {
-    width: 100%;
-    aspect-ratio: 16 / 9; /* 16:9 aspect ratio */
-    background-color: rgba(0, 0, 0, 0.1); /* Light red background */
-    color: rgba(0, 0, 0, 0.8); /* Dark red text */
-    outline: 1px solid rgba(0, 0, 0, 0.5); /* Light red border */
-    display: flex; /* Flexbox for centering text */
-    justify-content: center; /* Horizontally center text */
-    align-items: center; /* Vertically center text */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-    font-size: 0.95rem; /* Text size */
-    text-align: center; /* Center the text */
-    font-family: Raleway;
-    position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 16:9 aspect ratio */
+  background-color: rgba(0, 0, 0, 0.1); /* Light background for light theme */
+  color: rgba(0, 0, 0, 0.8); /* Dark text for light theme */
+  outline: 1px solid rgba(0, 0, 0, 0.5); /* Light border for light theme */
+  display: flex; /* Flexbox for centering text */
+  justify-content: center; /* Horizontally center text */
+  align-items: center; /* Vertically center text */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  font-size: 0.95rem; /* Text size */
+  text-align: center; /* Center the text */
+  font-family: Raleway;
+  position: relative;
 }
-body.dark .caution {
-    width: 100%;
-    aspect-ratio: 16 / 9; /* 16:9 aspect ratio */
-    background-color: rgba(255,255,255,.1); /* Light red background */
-    color: rgba(255,255,255,.5); /* Dark red text */
-    outline: 1px solid rgba(255,255,255,.1); /* Light red border */
-    display: flex; /* Flexbox for centering text */
-    justify-content: center; /* Horizontally center text */
-    align-items: center; /* Vertically center text */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-    font-size: 0.95rem; /* Text size */
-    text-align: center; /* Center the text */
-    font-family: Raleway;
-    position: relative;
+
+/* Dark theme specific styling for .caution */
+body[data-bs-theme="dark"] .caution {
+  background-color: rgba(255, 255, 255, 0.1); /* Dark background for dark theme */
+  color: rgba(255, 255, 255, 0.8); /* Light text for dark theme */
+  outline: 1px solid rgba(255, 255, 255, 0.1); /* Light border for dark theme */
 }
+
 /* Animation for loading dots */
-        .loading-dots {
-            font-weight: bold;
-            display: inline-block;
-            position: relative;
-            margin-left: 5px;
-        }
+.loading-dots {
+  font-weight: bold;
+  display: inline-block;
+  position: relative;
+  margin-left: 5px;
+}
 
-        .loading-dots::after {
-            content: '.';
-            display: inline;
-            animation: dot-anim 1.5s infinite steps(1);
-        }
-    
-  
-  @keyframes dot-anim {
-            0% {
-                content: '.';
-            }
-            33% {
-                content: '..';
-            }
-            66% {
-                content: '...';
-            }
-            100% {
-                content: '.';
-            }
-        }
+.loading-dots::after {
+  content: '.';
+  display: inline;
+  animation: dot-anim 1.5s infinite steps(1);
+}
 
+@keyframes dot-anim {
+  0% {
+    content: '.';
+  }
+  33% {
+    content: '..';
+  }
+  66% {
+    content: '...';
+  }
+  100% {
+    content: '.';
+  }
+}
 
-/* When the element becomes visible, these styles will apply */
+/* When the .text-content becomes visible, these styles will apply */
 .text-content.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+
+/* .clickable-text */
 .clickable-text {
-  font-family: inter;
+  font-family: Inter;
   font-weight: 800;
-  color: #007bff; /* Link color */
+  color: #007bff; /* Link color in light theme */
   text-decoration: none; /* Remove underline */
   cursor: pointer; /* Make it look clickable */
   padding: 0 2px; /* Optional: Add spacing */
   transition: color 0.3s ease;
 }
 
-body.dark .clickable-text:hover {
+/* Hover effect for .clickable-text */
+body[data-bs-theme="light"] .clickable-text:hover {
   font-weight: 600;
-  color: rgba(255,255,255,.2); /* Darker color on hover */
-  text-decoration: underline; /* Optional: Add underline on hover */
-}
-.clickable-text:hover {
-  font-weight: 600;
-  color: rgba(0,0,0,.2); /* Darker color on hover */
-  text-decoration: underline; /* Optional: Add underline on hover */
+  color: rgba(0, 0, 0, .2); /* Darker color on hover for light theme */
+  text-decoration: underline;
 }
 
+body[data-bs-theme="dark"] .clickable-text:hover {
+  font-weight: 600;
+  color: rgba(255, 255, 255, .2); /* Darker color on hover for dark theme */
+  text-decoration: underline;
+}
+
+/* .primary-hl */
 .primary-hl {
-    background-color: rgba(0,123,255,.1); /* Custom background color */
-    color: rgba(0,123,255,.8); /* Custom text color */
-    padding: 0.2em;
-    border-radius: 4px;
-    font-family: Inter;
-    font-weight: bold;
-  }
-  
-.primary-hl-level-2{
-  background-color: rgba(0,123,255,0); /* Custom background color */
-    outline: 1px solid rgba(0,123,255,.8);
-    color: rgba(0,123,255,.8); /* Custom text color */
-    padding: 0.2em;
-    border-radius: 4px;
+  background-color: rgba(0, 123, 255, .1); /* Custom background color for light theme */
+  color: rgba(0, 123, 255, .8); /* Custom text color for light theme */
+  padding: 0.2em;
+  border-radius: 4px;
+  font-family: Inter;
+  font-weight: bold;
 }
 
-/* Modal styling */
+/* .primary-hl-level-2 */
+.primary-hl-level-2 {
+  background-color: rgba(0, 123, 255, 0); /* Custom background color for light theme */
+  outline: 1px solid rgba(0, 123, 255, .8);
+  color: rgba(0, 123, 255, .8); /* Custom text color for light theme */
+  padding: 0.2em;
+  border-radius: 4px;
+}
+
+/* Modal Styling */
 .modal {
   position: fixed;
   z-index: 1000;
@@ -253,52 +267,54 @@ body.dark .clickable-text:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,.5); /* Dark background */
+  background-color: rgba(255, 255, 255, .5); /* Light background for light theme */
   backdrop-filter: blur(5px);
   opacity: 0; /* Initially invisible */
   transition: opacity 0.3s ease; /* Fade-in effect for overlay */
 }
 
-body.dark .overlay {
-  background-color: rgba(0, 0, 0, 0.5);
+body[data-bs-theme="dark"] .overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for dark theme */
 }
 
-/* Modal content */
+/* Modal Content */
 .modal-content {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5); /* Text color for light theme */
   width: auto;
   max-width: 320px;
   padding: 15px 20px;
   border-radius: 10px;
-  background: rgba(255,255,255,.1);
+  background: rgba(255, 255, 255, .1); /* Light background for light theme */
   outline: 2px solid #007bff;
   text-align: center;
   animation: SlideDownContent 1s ease forwards;
   font-size: 16px;
 }
 
-body.dark .modal-content{
-  color: rgba(255,255,255,.8);
-  background: rgba(0,0,0,.5);
+body[data-bs-theme="dark"] .modal-content {
+  color: rgba(255, 255, 255, .8); /* Light text color for dark theme */
+  background: rgba(0, 0, 0, .5); /* Dark background for dark theme */
   outline: 2px solid #007bff;
 }
 
-/* Slide down effect for the modal content 
+/* Slide down effect for modal content (optional) */
 @keyframes SlideDownContent {
   0% {
-    /*transform: translateY(-150%); /* Start from above the screen */
-   /* transform: scale(.90);
- /* }
-/*  100% {
- /*   transform: translateY(0%); /* End at the center of the screen */
-/*    transform: scale(.95);
-/*  }
-} */
+    transform: translateY(-150%); /* Start from above the screen */
+    scale: 0.90;
+  }
+  100% {
+    transform: translateY(0); /* End at the center of the screen */
+    scale: 0.95;
+  }
+}
 
+/* Countdown timer */
 #countdown-timer {
   font-weight: bold;
-  color: #007bff;
+  color: #007bff; /* Timer color */
 }
+
 /* Fade Out Animation */
 .fade-out-text {
   opacity: 1; /* Initially visible */
@@ -306,29 +322,23 @@ body.dark .modal-content{
   transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
 }
 
-/* Fade Out when the element leaves the viewport (after visible class is removed) */
+/* Fade Out when the element leaves the viewport */
 .fade-out-text.hidden {
   opacity: 0; /* Fade-out */
   transform: translateY(80px); /* Slide down */
-  transform: scale(.90);
+  scale: 0.90;
 }
 
-body.dark .half-color-bg {
-  background-color: rgba(255,255,255,.1);
+/* Half-color background */
+body[data-bs-theme="dark"] .half-color-bg {
+  background-color: rgba(255, 255, 255, .1); /* Dark theme half background */
 }
+
 .half-color-bg {
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, .1); /* Light theme half background */
 }
 
-
-
-
-
-
-
-
-
-
+/* Logo container */
 .logo-container {
   position: relative;
   overflow: hidden;
@@ -336,6 +346,8 @@ body.dark .half-color-bg {
   height: 120px; /* Adjust the height of the logo container */
 }
 
+
+/* Logo wrapper for scrolling effect */
 .logo-wrapper {
   display: flex;
   flex-direction: row;
@@ -358,16 +370,7 @@ body.dark .half-color-bg {
   }
 }
 
-
-
-
-
-
-
-
-
-
-/* Position the resolution dropdown at the top right */
+/* Resolution selector styling */
 .resolution-selector {
   position: absolute;
   top: 10px; /* Position from the top */
@@ -375,6 +378,7 @@ body.dark .half-color-bg {
   z-index: 10; /* Ensure it's above other elements */
 }
 
+/* Resolution dropdown base styling for both light and dark themes */
 .resolution-dropdown {
   font-family: Inter;
   font-weight: bold;
@@ -384,47 +388,42 @@ body.dark .half-color-bg {
   padding: 5px 15px; /* Adjust padding for a smaller width */
   font-size: 0.875rem;
   border-radius: 8px;
-  color: rgba(255,255,255,.5); /* White text color */
-  background-color: rgba(255,255,255,.1);
+  background-color: rgba(255, 255, 255, .1); /* Light background for light theme */
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(0,0,0,0);
+  border: 1px solid rgba(0, 0, 0, 0);
   outline: none; /* No outline */
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
   width: 4.6400em; /* Set a fixed width */
-}
-body.dark .resolution-dropdown {
-  font-family: Inter;
-  font-weight: bold;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  padding: 5px 15px; /* Adjust padding for a smaller width */
-  font-size: 0.875rem;
-  border-radius: 8px;
-  color: rgba(255,255,255,.3); /* White text color */
-  background-color: rgba(0,0,0,.1);
-  backdrop-filter: blur(1px);
-  border: 1px solid rgba(0,0,0,0);
-  outline: none; /* No outline */
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-  width: 4.6400em; /* Set a fixed width */
+  color: rgba(255, 255, 255, .5); /* White text color for light theme */
 }
 
-/* Option styling */
+/* Dark theme adjustments for resolution dropdown */
+body[data-bs-theme="dark"] .resolution-dropdown {
+  background-color: rgba(0, 0, 0, .1); /* Dark background for dark theme */
+  backdrop-filter: blur(1px);
+  color: rgba(255, 255, 255, .3); /* Darker text color for dark theme */
+}
+
+/* Option styling for both themes */
 .resolution-dropdown option {
   background-color: transparent; /* No background for options */
-  color: #000; /* Black text for options */
+  color: #000; /* Black text for options in light theme */
 }
 
-/* Additional hover effect (optional) */
-body.dark .resolution-dropdown:hover {
-  background-color: rgba(0,0,0,.1); /* Subtle hover effect */
-  color: rgba(255,255,255,.3);
+/* Hover effect for resolution dropdown in light theme */
+body[data-bs-theme="light"] .resolution-dropdown:hover {
+  background-color: rgba(255, 255, 255, .1); /* Subtle hover effect */
+  color: rgba(255, 255, 255, .5);
 }
-/* Additional hover effect (optional) */
-.resolution-dropdown:hover {
-  background-color: rgba(255,255,255,.1); /* Subtle hover effect */
-  color: rgba(255,255,255,.5);
+
+/* Hover effect for resolution dropdown in dark theme */
+body[data-bs-theme="dark"] .resolution-dropdown:hover {
+  background-color: rgba(0, 0, 0, .1); /* Subtle hover effect */
+  color: rgba(255, 255, 255, .3);
+}
+
+/* Hidden setting element */
+.setting {
+  display: none;
 }
