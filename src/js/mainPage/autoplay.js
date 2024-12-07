@@ -20,12 +20,6 @@ function saveAutoplayState(event) {
   const label = document.getElementById('autoplayStatusLabel');
   label.textContent = autoplay ? 'Autoplay: On' : 'Autoplay: Off';
 
-  // Delay the page reload by 500 milliseconds (0.5 seconds)
-  setTimeout(() => {
-    window.location.reload();
-  }, 500); // Adjust the time (in milliseconds) as needed
-}
-
 // Attach event listener to save the state when the toggle changes
 document.getElementById('autoplayToggle').addEventListener('change', saveAutoplayState);
 
