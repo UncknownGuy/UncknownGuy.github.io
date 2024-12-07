@@ -36,8 +36,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // Block the page rendering by initially hiding all content
+  document.body.style.visibility = 'hidden';
+  document.body.style.opacity = '0';
+  document.body.style.transition = 'opacity 0.5s ease';
+
   // Set the initial theme based on system preference (without transition)
   setThemeBasedOnSystemPreference();
+
+  // After theme is applied, reveal the content
+  window.addEventListener('load', () => {
+    document.body.style.visibility = 'visible';  // Reveal the body
+    document.body.style.opacity = '1';  // Fade the body in smoothly
+  });
 
   // Add transition class only when system theme preference changes
   mediaQuery.addEventListener('change', (e) => {
@@ -46,7 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // List of selectors for elements we want to exclude from being transitioned
     const excludedSelectors = [
-'#navbarNav','#countdown-modal', '.modal', '.overlay', '.modal-content','caution','.video-placeholder','#videoPlayer', '.video-player','.seek-overlay', '#playPauseBtn','#playPauseIcon', '.seek-bar','loading-dots','#blackO', '#seek','.seek-progress', '.seek-point','caution-wrapper','.seek-bar-overlay','.video-overlay'
+      '#navbarNav', '#countdown-modal', '.modal', '.overlay', '.modal-content', 'caution', '.video-placeholder', '#videoPlayer', 
+      '.video-player', '.seek-overlay', '#playPauseBtn', '#playPauseIcon', '.seek-bar', 'loading-dots', '#blackO', '#seek', 
+      '.seek-progress', '.seek-point', 'caution-wrapper', '.seek-bar-overlay', '.video-overlay'
     ];
 
     // Initially hide all elements except excluded ones

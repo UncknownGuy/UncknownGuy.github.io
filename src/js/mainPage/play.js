@@ -2,6 +2,9 @@
 let hls;
 let currentStreamIndex = 0; // Start with the first stream in the array
 const year = '2024©'; // Store the year as a string
+let videoElement = document.getElementById('videoPlayer'); // Use ID videoPlayer for the video element
+let bodyElement = document.body; // Target the full body for user interaction
+const autoplayToggle = document.getElementById('autoplayToggle'); // Autoplay toggle element
 
 // Function to load and try playing the stream
 async function loadStream() {
@@ -49,7 +52,7 @@ function playStream(url, streamName, from, artwork) {
   if (Hls.isSupported()) {
     hls = new Hls();
     hls.loadSource(url);
-    hls.attachMedia(video);
+    hls.attachMedia(videoElement);
 
     if ('mediaSession' in navigator) {
       navigator.mediaSession.metadata = new MediaMetadata({
@@ -62,7 +65,16 @@ function playStream(url, streamName, from, artwork) {
     hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
       // Populate the resolution selector once the manifest is parsed
       populateResolutions(data.levels);
-      video.play();
+
+      // Attempt to autoplay with sound or muted based on toggle state
+      if (autoplayToggle.checked) {
+        attemptAutoplayWithSound(); // Autoplay with sound if toggle is on
+      } else {
+        videoElement.pause(); // Pause if autoplay is off
+        console.log("Autoplay is off. Video is paused.");
+      }
+
+      // Reveal the player after attempting autoplay
       revealPlayer(streamName);
     });
 
@@ -73,15 +85,69 @@ function playStream(url, streamName, from, artwork) {
         loadStream();
       }
     });
-
-    // Listen for changes in resolution
-    hls.on(Hls.Events.LEVEL_SWITCHED, function (event, data) {
-      updateResolutionDropdown(); // Update the resolution dropdown when the level changes
-    });
-
   } else {
-    video.src = url;
-    video.play();
+    videoElement.src = url;
+
+    // Attempt to autoplay with sound if toggle is on
+    if (autoplayToggle.checked) {
+      attemptAutoplayWithSound();
+    } else {
+      videoElement.pause(); // Pause if autoplay is off
+      console.log("Autoplay is off. Video is paused.");
+    }
+
     revealPlayer(streamName);
   }
 }
+
+// Function to attempt autoplay with sound
+function attemptAutoplayWithSound() {
+  videoElement.play().then(() => {
+    console.log("Autoplay with sound started.");
+  }).catch((error) => {
+    console.log("Autoplay with sound failed. Playing muted.");
+    videoElement.muted = true;  // Ensure it is muted initially
+    videoElement.play().then(() => {
+      console.log("Autoplay started muted.");
+    }).catch(err => {
+      console.error("Failed to autoplay muted:", err);
+    });
+
+    // After autoplay attempt, set up the click event for unmuting
+    setUserInteractionListener();
+  });
+}
+
+// Function to set the listener for user interaction (click anywhere on the body)
+function setUserInteractionListener() {
+  bodyElement.addEventListener('click', function () {
+    if (videoElement.paused) {
+      videoElement.play().then(() => {
+        console.log("Video resumed with sound.");
+      }).catch((error) => {
+        console.error('Failed to play video:', error);
+      });
+    }
+
+    // Unmute the video after user interaction
+    videoElement.muted = false;
+    console.log("Unmuting video after user interaction.");
+  }, { once: true });  // Ensure it only triggers once for the first click
+}
+
+// Function to reveal the video player (your reveal logic here)
+function revealPlayer(streamName) {
+  const videoWrapper = document.querySelector('.video-wrapper'); // Use your class to target the wrapper
+  if (videoWrapper) {
+    videoWrapper.style.display = 'block';
+    console.log("Player revealed.");
+  }
+}
+
+// Add event listener for the autoplay toggle to handle the state change
+autoplayToggle.addEventListener('change', function () {
+  if (!autoplayToggle.checked) {
+    videoElement.pause(); // Pause the video if autoplay is off
+    console.log("Autoplay is off. Video is paused.");
+  }
+});
