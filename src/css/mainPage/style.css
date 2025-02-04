@@ -95,9 +95,8 @@ body[data-bs-theme="dark"] .indicator.active {
 }
 
 .text-container {
-  padding: 8px;
+  padding: 12px;
   margin-bottom: 45px;
-  max-width: 600px;  /* Limit the width for readability */
   width: 100%;
   word-wrap: break-word;
 }
