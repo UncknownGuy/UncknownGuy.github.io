@@ -43,7 +43,6 @@ body[data-bs-theme="dark"] .bg-purple {
 .gallery-container {
   text-align: center;
   width: 90%;
-  max-width: 800px;
 }
 
 .image-display img {
