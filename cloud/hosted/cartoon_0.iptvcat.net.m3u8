@@ -1,0 +1,53 @@
+#EXTM3U
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Undefined",Xtrema Cartoons
+https://stmv6.voxtvhd.com.br/xtremacartoons/xtremacartoons/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Undefined",Xtrema Cartoons (360p)
+https://stmv1.cnarlatam.com/cineinfantil/cineinfantil/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="AR" tvg-logo="" group-title="Undefined",Xtrema Retro Cartoons (360p)
+https://stmv1.cnarlatam.com/retroinfantil/retroinfantil/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="BR" tvg-logo="https://i.imgur.com/aoq9CGU.png" group-title="Religious",Gospel Cartoon (360p)
+https://stmv1.srvif.com/gospelcartoon/gospelcartoon/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="CN" tvg-logo="" group-title="CHINA",Golden Eagle Cartoon
+http://1.24.190.98:10080/hls/51/index.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="CN" tvg-logo="" group-title="CHINA",JiaJia Cartoon
+http://49.113.179.174:4022/udp/238.125.0.158:5140?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IN" tvg-logo="https://i.imgur.com/pH6ao2T.png" group-title="Undefined",Cartoon Network HD+ (1080p)
+http://103.68.28.58:5001/live/1079.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IN" tvg-logo="https://i.imgur.com/BbFNpMr.jpeg" group-title="Kids;Undefined",ZB Cartoon (1080p)
+https://server.zillarbarta.com/zbcatun/video.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="IT" tvg-logo="" group-title="ITALY",Cartoonito Italy [Geo-blocked]
+https://live2.msf.cdn.mediaset.net/content/hls_h0_clr_vos/live/channel(la)/index.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="JP" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/512px-Cartoon_Network_2010_logo.svg.png" group-title="Undefined",Cartoon Network Japan (400p)
+http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs25&checkedby:iptvcat.net
+#EXTINF:0 tvg-country="MY;TH" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/512px-Cartoon_Network_2010_logo.svg.png" group-title="Undefined",Cartoon Network Southeast Asia (1080p)
+https://cdn1.skygo.mn/live/disk1/Cartoon_Network/HLS-FTA/Cartoon_Network.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="PL" tvg-logo="" group-title="Undefined",Cartoon Network (1080p)
+http://109.233.89.166/Cartoon_Network_HD/index.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="PL" tvg-logo="" group-title="Undefined",Cartoon Network (1080p)
+http://178.219.128.68:64888/CARTNETWHD?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="SG" tvg-logo="" group-title="Undefined",Cartoonito Southeast Asia (1080p)
+https://cdn1.skygo.mn/live/disk1/Boomerang/HLS-FTA/Boomerang.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="TR" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/512px-Cartoon_Network_2010_logo.svg.png" group-title="Undefined",Cartoon Network
+https://canlitvulusal.xyz/live/cartoonnetwork/index.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="TR" tvg-logo="" group-title="Undefined",Cartoon Network
+https://cartoonnetwork.blutv.com/blutv_cartoonnetwork/live_720p2000000kbps/index.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="TR" tvg-logo="" group-title="Undefined",Cartoon Network
+https://cartoonnetwork.blutv.com/blutv_cartoonnetwork/live.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="UN" tvg-logo="" group-title="Undefined",Cartoon Network Russia (576p)
+http://stream01.vnet.am/Kinosemya/mono.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="UN" tvg-logo="https://i.imgur.com/cyfu3qP.png" group-title="Undefined",Retrô Cartoon
+https://stmv1.srvif.com/retrotv/retrotv/playlist-480p.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="UN" tvg-logo="https://i.imgur.com/cyfu3qP.png" group-title="Classic",Retrô Cartoon (480p)
+https://stmv1.srvif.com/retrotv/retrotv/playlist.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Undefined",Cartoon Network (576p)
+http://92.114.85.72:8000/play/a07h?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="GB" tvg-logo="" group-title="Undefined",Cartoonito
+http://92.114.85.72:8000/play/a07l?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="US" tvg-logo="" group-title="Undefined",Cartoon Network East (1080p)
+https://fl2.moveonjoy.com/CARTOON_NETWORK/index.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="US" tvg-logo="" group-title="Undefined",Cartoon TV (1080p)
+https://lte.wiseplayout.com/WiseM3U8_5/master.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",Cartoons Big HD
+http://myott.top/stream/DT6QU63K5VX/348.m3u8?checkedby:iptvcat.net
+#EXTINF:0 tvg-country="" tvg-logo="" group-title="Undefined",Cartoons Short HD
+http://myott.top/stream/DT6QU63K5VX/347.m3u8?checkedby:iptvcat.net
