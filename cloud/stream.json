@@ -1,0 +1,8 @@
+[
+  {
+    "title": "My Test Movie",
+    "url": "https://example.com/movie-details",
+    "poster": "https://i.ibb.co/Wv3RMK6G/images-84.jpg",
+    "description": "This is a basic description showing that my local extension successfully read the JSON file!"
+  }
+]
